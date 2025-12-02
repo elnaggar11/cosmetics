@@ -1,6 +1,5 @@
-import 'package:cosmetics/core/utils/ui/app_button.dart';
-import 'package:cosmetics/core/utils/ui/arrow_back_widget.dart';
-import 'package:cosmetics/core/utils/ui/custom_text_field.dart';
+import 'package:cosmetics/core/utils/helper/navigate.dart';
+import 'package:cosmetics/features/splash/splash_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -18,19 +17,9 @@ class MyApp extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       child: MaterialApp(
+        navigatorKey: navKey,
         debugShowCheckedModeBanner: false,
-
-        home: const Scaffold(
-          body: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ArrowBackWidget(),
-              Center(child: Text('data')),
-              CustomTextField(hintText: 'Enter text'),
-              AppButton(),
-            ],
-          ),
-        ),
+        home: SplashView(),
       ),
     );
   }
