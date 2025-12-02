@@ -14,7 +14,7 @@ class _SplashViewState extends State<SplashView> {
   @override
   void initState() {
     super.initState();
-    navigateTo(const OnboardingView(), delayInSeconds: 2);
+    navigateTo(const OnboardingView(), delayInSeconds: 2, canPop: false);
   }
 
   @override
