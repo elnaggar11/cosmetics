@@ -1,5 +1,6 @@
 import 'package:cosmetics/core/utils/constants/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomTextField extends StatelessWidget {
   const CustomTextField({
@@ -30,15 +31,15 @@ class CustomTextField extends StatelessWidget {
         hintText: hintText,
         prefixIcon: prefixIcon,
         suffixIcon: suffixIcon,
-        hintStyle: const TextStyle(
+        hintStyle: TextStyle(
           color: Colors.grey,
-          fontSize: 12,
+          fontSize: 12.sp,
           fontWeight: FontWeight.w400,
           fontFamily: 'montserrat',
         ),
-        labelStyle: const TextStyle(
+        labelStyle: TextStyle(
           color: Colors.grey,
-          fontSize: 14,
+          fontSize: 14.sp,
           fontWeight: FontWeight.w400,
           fontFamily: 'montserrat',
         ),

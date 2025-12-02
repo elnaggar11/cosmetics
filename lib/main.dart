@@ -1,3 +1,4 @@
+import 'package:cosmetics/core/utils/ui/app_button.dart';
 import 'package:cosmetics/core/utils/ui/arrow_back_widget.dart';
 import 'package:cosmetics/core/utils/ui/custom_text_field.dart';
 import 'package:flutter/material.dart';
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
               ArrowBackWidget(),
               Center(child: Text('data')),
               CustomTextField(hintText: 'Enter text'),
+              AppButton(),
             ],
           ),
         ),
