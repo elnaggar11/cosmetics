@@ -7,6 +7,7 @@ class DropDownTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DropdownButtonFormField(
+      initialValue: items.first,
       decoration: InputDecoration(
         border: _buildBorder(),
         contentPadding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 16.0),

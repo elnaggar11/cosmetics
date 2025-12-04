@@ -21,6 +21,7 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
+    - assets/lotties/
     - assets/fonts/
     - assets/fonts/montserrat/
     - assets/fonts/segoeui/
