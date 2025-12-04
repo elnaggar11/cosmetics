@@ -1,6 +1,8 @@
 import 'package:cosmetics/core/utils/constants/app_colors.dart';
+import 'package:cosmetics/core/utils/ui/app_button.dart';
 import 'package:cosmetics/core/utils/ui/custom_text_field.dart';
 import 'package:cosmetics/features/auth/presentation/widgets/phone_input.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
@@ -18,7 +20,10 @@ class _LoginViewState extends State<LoginView> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(vsync: this);
+    _controller = AnimationController(
+      vsync: this,
+      duration: Duration(milliseconds: 500),
+    );
   }
 
   @override
@@ -27,67 +32,123 @@ class _LoginViewState extends State<LoginView> with TickerProviderStateMixin {
     super.dispose();
   }
 
+  void _reverseLottie() {
+    if (_controller.isCompleted) {
+      setState(() {
+        _controller.reverse();
+        _isPasswordVisible = true;
+      });
+    } else {
+      _controller.forward();
+      setState(() {
+        _isPasswordVisible = false;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(13.0),
-          child: Column(
-            children: [
-              Image.asset('assets/images/login.png'),
-              Text(
-                'Login Now',
-                style: TextStyle(
-                  fontSize: 24.sp,
-                  fontWeight: FontWeight.bold,
-                  color: AppColors.textColor,
-                  fontFamily: 'montserrat',
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(height: 40.h),
+                Image.asset('assets/images/login.png'),
+                SizedBox(height: 20.h),
+                Text(
+                  'Login Now',
+                  style: TextStyle(
+                    fontSize: 24.sp,
+                    fontWeight: FontWeight.bold,
+                    color: AppColors.textColor,
+                    fontFamily: 'montserrat',
+                  ),
                 ),
-              ),
-              Text(
-                'Please enter the details below to continue',
-                style: TextStyle(
-                  fontSize: 14.sp,
-                  color: Colors.grey,
-                  fontFamily: 'montserrat',
+                SizedBox(height: 14.h),
+                Text(
+                  'Please enter the details below to continue',
+                  style: TextStyle(
+                    fontSize: 14.sp,
+                    color: Colors.grey,
+                    fontFamily: 'montserrat',
+                  ),
                 ),
-              ),
-              PhoneInput(),
-              SizedBox(height: 20.h),
-              CustomTextField(
-                hintText: 'Your Password',
-                obscureText: _isPasswordVisible,
-                suffixIcon: GestureDetector(
-                  onTap: () {
-                    _controller.duration = const Duration(milliseconds: 500);
-                    if (_controller.isCompleted) {
-                      setState(() {
-                        _controller.reverse();
-                        _isPasswordVisible = true;
-                      });
-                    } else {
-                      _controller.forward();
-                      setState(() {
-                        _isPasswordVisible = false;
-                      });
-                    }
-                  },
-                  child: SizedBox(
-                    height: 24.h,
-                    width: 24.w,
-                    child: Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: Lottie.asset(
-                        'assets/lotties/password_view.json',
-
-                        controller: _controller,
+                SizedBox(height: 25.h),
+                PhoneInput(),
+                SizedBox(height: 7.h),
+                CustomTextField(
+                  hintText: 'Your Password',
+                  obscureText: _isPasswordVisible,
+                  suffixIcon: GestureDetector(
+                    onTap: () {
+                      _reverseLottie();
+                    },
+                    child: SizedBox(
+                      height: 24.h,
+                      width: 24.w,
+                      child: Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: Lottie.asset(
+                          'assets/lotties/password_view.json',
+                          controller: _controller,
+                        ),
                       ),
                     ),
                   ),
                 ),
-              ),
-            ],
+                SizedBox(height: 12.h),
+                GestureDetector(
+                  onTap: () {},
+                  child: Align(
+                    alignment: AlignmentGeometry.topRight,
+                    child: Text(
+                      'Forgot Password?',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 12.sp,
+                        color: AppColors.primaryColor,
+                        fontFamily: 'montserrat',
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 40.0,
+                    vertical: 20.0,
+                  ),
+                  child: AppButton(text: 'Login', onTap: () {}),
+                ),
+                SizedBox(height: 80.h),
+                Text.rich(
+                  TextSpan(
+                    text: "Don't have an account? ",
+                    style: TextStyle(
+                      fontSize: 12.sp,
+                      color: Color(0xff434C6D),
+                      fontFamily: 'montserrat',
+                      fontWeight: FontWeight.w400,
+                    ),
+                    children: [
+                      TextSpan(
+                        text: 'Register',
+                        recognizer: TapGestureRecognizer()..onTap = () {},
+                        style: TextStyle(
+                          fontSize: 12.sp,
+                          color: AppColors.primaryColor,
+                          fontFamily: 'montserrat',
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
