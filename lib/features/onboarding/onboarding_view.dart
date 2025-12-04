@@ -1,5 +1,7 @@
 import 'package:cosmetics/core/utils/constants/app_colors.dart';
+import 'package:cosmetics/core/utils/helper/navigate.dart';
 import 'package:cosmetics/core/utils/ui/app_button.dart';
+import 'package:cosmetics/features/auth/presentation/views/login_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -21,7 +23,12 @@ class _OnboardingViewState extends State<OnboardingView> {
         child: Column(
           children: [
             if (currentIndex != 2)
-              GestureDetector(onTap: () {}, child: _skipButton()),
+              GestureDetector(
+                onTap: () {
+                  navigateTo(const LoginView(), canPop: false);
+                },
+                child: _skipButton(),
+              ),
 
             SizedBox(height: 80.h),
 
@@ -71,7 +78,9 @@ class _OnboardingViewState extends State<OnboardingView> {
                       child: AppButton(
                         color: AppColors.textColor,
                         text: 'Get Started',
-                        onTap: () {},
+                        onTap: () {
+                          navigateTo(const LoginView(), canPop: false);
+                        },
                       ),
                     ),
             ),
