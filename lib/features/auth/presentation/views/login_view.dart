@@ -22,7 +22,7 @@ class _LoginViewState extends State<LoginView> with TickerProviderStateMixin {
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 500),
+      duration: Duration(milliseconds: 700),
     );
   }
 
