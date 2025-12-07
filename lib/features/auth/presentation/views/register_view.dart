@@ -1,6 +1,8 @@
 import 'package:cosmetics/core/utils/constants/app_colors.dart';
+import 'package:cosmetics/core/utils/helper/navigate.dart';
 import 'package:cosmetics/core/utils/ui/app_button.dart';
 import 'package:cosmetics/core/utils/ui/custom_text_field.dart';
+import 'package:cosmetics/features/auth/presentation/views/verify_create_account.dart';
 import 'package:cosmetics/features/auth/presentation/widgets/phone_input.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -51,7 +53,7 @@ class _RegisterViewState extends State<RegisterView>
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: RPadding(
+        child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 13.r),
           child: SingleChildScrollView(
             child: Column(
@@ -125,7 +127,12 @@ class _RegisterViewState extends State<RegisterView>
                     horizontal: 40.0,
                     vertical: 20.0,
                   ),
-                  child: AppButton(text: 'Next', onTap: () {}),
+                  child: AppButton(
+                    text: 'Next',
+                    onTap: () {
+                      navigateTo(VerifyCreateAccount());
+                    },
+                  ),
                 ),
                 SizedBox(height: 80.h),
                 Text.rich(
@@ -140,7 +147,10 @@ class _RegisterViewState extends State<RegisterView>
                     children: [
                       TextSpan(
                         text: 'Login',
-                        recognizer: TapGestureRecognizer()..onTap = () {},
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () {
+                            Navigator.pop(context);
+                          },
                         style: TextStyle(
                           fontSize: 12.sp,
                           color: AppColors.primaryColor,
