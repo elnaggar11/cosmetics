@@ -1,6 +1,8 @@
 import 'package:cosmetics/core/utils/constants/app_colors.dart';
+import 'package:cosmetics/core/utils/helper/navigate.dart';
 import 'package:cosmetics/core/utils/ui/app_button.dart';
 import 'package:cosmetics/core/utils/ui/custom_text_field.dart';
+import 'package:cosmetics/features/auth/presentation/views/register_view.dart';
 import 'package:cosmetics/features/auth/presentation/widgets/phone_input.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -51,7 +53,7 @@ class _LoginViewState extends State<LoginView> with TickerProviderStateMixin {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(13.0),
+          padding: EdgeInsets.symmetric(horizontal: 13.r),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -136,7 +138,10 @@ class _LoginViewState extends State<LoginView> with TickerProviderStateMixin {
                     children: [
                       TextSpan(
                         text: 'Register',
-                        recognizer: TapGestureRecognizer()..onTap = () {},
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () {
+                            navigateTo(RegisterView());
+                          },
                         style: TextStyle(
                           fontSize: 12.sp,
                           color: AppColors.primaryColor,
