@@ -25,17 +25,29 @@ class _SplashViewState extends State<SplashView> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
-              'assets/images/logo_icon.png',
-              width: 200.w,
-              height: 200.h,
-            ),
-            Image.asset(
               'assets/images/splash_text.png',
               width: 120.w,
               height: 45.h,
             ),
           ],
         ),
+
+        // child: Column(
+        //   mainAxisAlignment: MainAxisAlignment.center,
+        //   children: [
+
+        //     Image.asset(
+        //       'assets/images/logo_icon.png',
+        //       width: 200.w,
+        //       height: 200.h,
+        //     ),
+        //     Image.asset(
+        //       'assets/images/splash_text.png',
+        //       width: 120.w,
+        //       height: 45.h,
+        //     ),
+        //   ],
+        // ),
       ),
     );
   }

@@ -1,7 +1,8 @@
-import 'package:cosmetics/core/utils/constants/app_colors.dart';
-import 'package:cosmetics/core/utils/ui/pin_code_text_field_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'package:cosmetics/core/utils/constants/app_colors.dart';
+import 'package:cosmetics/core/utils/ui/pin_code_text_field_widget.dart';
 
 class VerifyWidgets extends StatelessWidget {
   const VerifyWidgets({super.key});
@@ -45,7 +46,8 @@ class VerifyWidgets extends StatelessWidget {
               ),
             ),
           ),
-          PinCodeTextFieldWidget(),
+          SizedBox(height: 76.h),
+          const PinCodeTextFieldWidget(),
         ],
       ),
     );
