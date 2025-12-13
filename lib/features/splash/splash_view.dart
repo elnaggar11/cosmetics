@@ -1,4 +1,5 @@
 import 'package:cosmetics/core/utils/helper/navigate.dart';
+import 'package:cosmetics/core/utils/ui/app_image.dart';
 import 'package:cosmetics/features/onboarding/onboarding_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -24,30 +25,15 @@ class _SplashViewState extends State<SplashView> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset(
-              'assets/images/splash_text.png',
+            AppImage(image: 'logo_icon.png', height: 200.h, width: 200.w),
+            AppImage(
+              image: 'splash_text.png',
               width: 120.w,
               height: 45.h,
+              isCircle: false,
             ),
           ],
         ),
-
-        // child: Column(
-        //   mainAxisAlignment: MainAxisAlignment.center,
-        //   children: [
-
-        //     Image.asset(
-        //       'assets/images/logo_icon.png',
-        //       width: 200.w,
-        //       height: 200.h,
-        //     ),
-        //     Image.asset(
-        //       'assets/images/splash_text.png',
-        //       width: 120.w,
-        //       height: 45.h,
-        //     ),
-        //   ],
-        // ),
       ),
     );
   }

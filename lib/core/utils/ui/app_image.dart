@@ -10,9 +10,9 @@ class AppImage extends StatefulWidget {
     this.height,
     this.color,
     this.paddingBottomSpace,
-    required this.boxFit,
-    required this.isLottieControlled,
-    required this.isCircle,
+    this.boxFit = BoxFit.scaleDown,
+    this.isLottieControlled = false,
+    this.isCircle = false,
   });
 
   final String image;
