@@ -2,6 +2,7 @@ import 'package:cosmetics/core/utils/constants/app_colors.dart';
 import 'package:cosmetics/core/utils/helper/navigate.dart';
 import 'package:cosmetics/core/utils/ui/app_button.dart';
 import 'package:cosmetics/core/utils/ui/custom_text_field.dart';
+import 'package:cosmetics/core/utils/ui/success_massage.dart';
 import 'package:cosmetics/features/auth/presentation/views/register_view.dart';
 import 'package:cosmetics/features/auth/presentation/widgets/phone_input.dart';
 import 'package:flutter/gestures.dart';
@@ -123,7 +124,17 @@ class _LoginViewState extends State<LoginView> with TickerProviderStateMixin {
                     horizontal: 40.0,
                     vertical: 20.0,
                   ),
-                  child: AppButton(text: 'Login', onTap: () {}),
+                  child: AppButton(
+                    text: 'Login',
+                    onTap: () {
+                      showDialog(
+                        context: context,
+                        builder: (context) {
+                          return SuccessMassage();
+                        },
+                      );
+                    },
+                  ),
                 ),
                 SizedBox(height: 80.h),
                 Text.rich(

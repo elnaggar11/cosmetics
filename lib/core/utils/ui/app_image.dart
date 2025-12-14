@@ -46,8 +46,6 @@ class _AppImageState extends State<AppImage> {
           if (widget.image.toLowerCase().endsWith('svg')) {
             child = SvgPicture.asset(
               "assets/icons/${widget.image}",
-              // ignore: deprecated_member_use
-              color: widget.color,
               fit: myFit,
               width: widget.width,
               height: widget.height,
