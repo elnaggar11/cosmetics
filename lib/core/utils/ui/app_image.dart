@@ -13,6 +13,7 @@ class AppImage extends StatefulWidget {
     this.boxFit = BoxFit.scaleDown,
     this.isLottieControlled = false,
     this.isCircle = false,
+    this.onLottieClicked,
   });
 
   final String image;
@@ -22,12 +23,27 @@ class AppImage extends StatefulWidget {
   final BoxFit boxFit;
   final bool isLottieControlled;
   final bool isCircle;
+  final VoidCallback? onLottieClicked;
 
   @override
   State<AppImage> createState() => _AppImageState();
 }
 
-class _AppImageState extends State<AppImage> {
+class _AppImageState extends State<AppImage> with TickerProviderStateMixin {
+  late final AnimationController _controller;
+
+  @override
+  void initState() {
+    if (widget.onLottieClicked != null) {
+      _controller = AnimationController(
+        vsync: this,
+        duration: Duration(milliseconds: 700),
+      );
+    }
+
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     final myFit = widget.isCircle ? BoxFit.cover : widget.boxFit;
@@ -64,7 +80,21 @@ class _AppImageState extends State<AppImage> {
               fit: myFit,
               width: widget.width,
               height: widget.height,
+              controller: _controller,
             );
+            if (widget.onLottieClicked != null) {
+              child = GestureDetector(
+                onTap: () {
+                  if (_controller.isCompleted) {
+                    _controller.reverse();
+                  } else {
+                    _controller.forward();
+                  }
+                  widget.onLottieClicked?.call();
+                },
+                child: child,
+              );
+            }
           } else {
             child = Image.asset(
               "assets/images/${widget.image}",

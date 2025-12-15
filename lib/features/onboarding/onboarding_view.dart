@@ -1,7 +1,7 @@
 import 'package:cosmetics/core/utils/constants/app_colors.dart';
 import 'package:cosmetics/core/utils/helper/navigate.dart';
 import 'package:cosmetics/core/utils/ui/app_button.dart';
-import 'package:cosmetics/features/auth/presentation/views/login_view.dart';
+import 'package:cosmetics/features/auth/views/login_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';

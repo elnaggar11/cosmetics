@@ -7,14 +7,14 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class VerifyCreateAccount extends StatefulWidget {
-  const VerifyCreateAccount({super.key});
+class VerifyView extends StatefulWidget {
+  const VerifyView({super.key});
 
   @override
-  State<VerifyCreateAccount> createState() => _VerifyCreateAccountState();
+  State<VerifyView> createState() => _VerifyViewState();
 }
 
-class _VerifyCreateAccountState extends State<VerifyCreateAccount> {
+class _VerifyViewState extends State<VerifyView> {
   int secondsLeft = 60;
   Timer? _timer;
 

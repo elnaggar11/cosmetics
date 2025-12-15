@@ -1,5 +1,5 @@
 import 'package:cosmetics/core/utils/ui/custom_text_field.dart';
-import 'package:cosmetics/features/auth/presentation/widgets/drop_down_text_field.dart';
+import 'package:cosmetics/features/auth/widgets/drop_down_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

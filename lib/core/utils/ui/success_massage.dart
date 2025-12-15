@@ -11,18 +11,23 @@ class SuccessMassage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SimpleDialog(
       children: [
-        AppImage(image: 'Done.json', height: 100.h, width: 100.w),
+        AppImage(image: 'Done.json'),
         Text(
           'Account Activated!',
           style: TextStyle(
             fontWeight: FontWeight.w600,
             color: AppColors.textColor,
+            fontSize: 16,
           ),
           textAlign: TextAlign.center,
         ),
         Text(
           'Congratulations! Your account has been successfully activated',
-          style: TextStyle(fontWeight: FontWeight.w500),
+          style: TextStyle(
+            fontWeight: FontWeight.w500,
+            color: Color(0xFF8E8EA9),
+            fontSize: 16,
+          ),
           textAlign: TextAlign.center,
         ),
         SizedBox(height: 20.h),
@@ -30,6 +35,7 @@ class SuccessMassage extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 46.r),
           child: AppButton(text: 'Go To Home'),
         ),
+        SizedBox(height: 30.h),
       ],
     );
   }
