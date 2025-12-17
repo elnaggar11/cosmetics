@@ -63,7 +63,7 @@ class _VerifyViewState extends State<VerifyView> {
                 ),
                 SizedBox(height: 40.h),
                 Text(
-                  'Create Account',
+                  'Verify Code',
                   style: TextStyle(
                     fontSize: 24.sp,
                     fontWeight: FontWeight.bold,
@@ -77,7 +77,7 @@ class _VerifyViewState extends State<VerifyView> {
                   child: Text.rich(
                     TextSpan(
                       text: 'We just sent a 4-digit verification code to\n',
-                      style: TextStyle(color: Colors.black, fontSize: 14),
+                      style: TextStyle(color: Color(0xFF8E8EA9), fontSize: 14),
                       children: [
                         TextSpan(
                           text: '+20 1022658997',
@@ -112,7 +112,7 @@ class _VerifyViewState extends State<VerifyView> {
                 ),
                 SizedBox(height: 20.h),
                 const PinCodeTextFieldWidget(),
-                SizedBox(height: 43),
+                SizedBox(height: 43.h),
                 Row(
                   children: [
                     Text.rich(
