@@ -11,7 +11,6 @@ class AppImage extends StatefulWidget {
     this.color,
     this.paddingBottomSpace,
     this.boxFit = BoxFit.scaleDown,
-    this.isLottieControlled = false,
     this.isCircle = false,
     this.onLottieClicked,
   });
@@ -21,7 +20,6 @@ class AppImage extends StatefulWidget {
   final Color? color;
   final double? paddingBottomSpace;
   final BoxFit boxFit;
-  final bool isLottieControlled;
   final bool isCircle;
   final VoidCallback? onLottieClicked;
 
