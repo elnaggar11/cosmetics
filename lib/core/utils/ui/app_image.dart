@@ -28,7 +28,7 @@ class AppImage extends StatefulWidget {
 }
 
 class _AppImageState extends State<AppImage> with TickerProviderStateMixin {
-  late final AnimationController _controller;
+  AnimationController? _controller;
 
   @override
   void initState() {
@@ -83,10 +83,10 @@ class _AppImageState extends State<AppImage> with TickerProviderStateMixin {
             if (widget.onLottieClicked != null) {
               child = GestureDetector(
                 onTap: () {
-                  if (_controller.isCompleted) {
-                    _controller.reverse();
+                  if (_controller!.isCompleted) {
+                    _controller!.reverse();
                   } else {
-                    _controller.forward();
+                    _controller!.forward();
                   }
                   widget.onLottieClicked?.call();
                 },

@@ -1,6 +1,7 @@
 import 'package:cosmetics/core/utils/constants/app_colors.dart';
 import 'package:cosmetics/core/utils/helper/navigate.dart';
 import 'package:cosmetics/core/utils/ui/app_button.dart';
+import 'package:cosmetics/core/utils/ui/app_image.dart';
 import 'package:cosmetics/core/utils/ui/custom_text_field.dart';
 import 'package:cosmetics/core/utils/ui/success_massage.dart';
 import 'package:cosmetics/features/auth/views/register_view.dart';
@@ -8,7 +9,6 @@ import 'package:cosmetics/features/auth/widgets/phone_input.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:lottie/lottie.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -17,38 +17,8 @@ class LoginView extends StatefulWidget {
   State<LoginView> createState() => _LoginViewState();
 }
 
-class _LoginViewState extends State<LoginView> with TickerProviderStateMixin {
-  late final AnimationController _controller;
+class _LoginViewState extends State<LoginView> {
   bool _isPasswordVisible = true;
-  @override
-  void initState() {
-    super.initState();
-    _controller = AnimationController(
-      vsync: this,
-      duration: Duration(milliseconds: 700),
-    );
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
-  void _reverseLottie() {
-    if (_controller.isCompleted) {
-      setState(() {
-        _controller.reverse();
-        _isPasswordVisible = true;
-      });
-    } else {
-      _controller.forward();
-      setState(() {
-        _isPasswordVisible = false;
-      });
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -86,19 +56,17 @@ class _LoginViewState extends State<LoginView> with TickerProviderStateMixin {
                 CustomTextField(
                   hintText: 'Your Password',
                   obscureText: _isPasswordVisible,
-                  suffixIcon: GestureDetector(
-                    onTap: () {
-                      _reverseLottie();
-                    },
-                    child: SizedBox(
-                      height: 24.h,
-                      width: 24.w,
-                      child: Padding(
-                        padding: const EdgeInsets.all(12.0),
-                        child: Lottie.asset(
-                          'assets/lotties/password_view.json',
-                          controller: _controller,
-                        ),
+                  suffixIcon: SizedBox(
+                    height: 24.h,
+                    width: 24.w,
+                    child: Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: AppImage(
+                        image: 'password_view.json',
+                        onLottieClicked: () {
+                          _isPasswordVisible = !_isPasswordVisible;
+                          setState(() {});
+                        },
                       ),
                     ),
                   ),
