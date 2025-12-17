@@ -27,7 +27,8 @@ class AppImage extends StatefulWidget {
   State<AppImage> createState() => _AppImageState();
 }
 
-class _AppImageState extends State<AppImage> with TickerProviderStateMixin {
+class _AppImageState extends State<AppImage>
+    with SingleTickerProviderStateMixin {
   AnimationController? _controller;
 
   @override
@@ -38,7 +39,6 @@ class _AppImageState extends State<AppImage> with TickerProviderStateMixin {
         duration: Duration(milliseconds: 700),
       );
     }
-
     super.initState();
   }
 

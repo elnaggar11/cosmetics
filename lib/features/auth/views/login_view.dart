@@ -4,6 +4,7 @@ import 'package:cosmetics/core/utils/ui/app_button.dart';
 import 'package:cosmetics/core/utils/ui/app_image.dart';
 import 'package:cosmetics/core/utils/ui/custom_text_field.dart';
 import 'package:cosmetics/core/utils/ui/success_massage.dart';
+import 'package:cosmetics/features/auth/views/forget_password_view.dart';
 import 'package:cosmetics/features/auth/views/register_view.dart';
 import 'package:cosmetics/features/auth/widgets/phone_input.dart';
 import 'package:flutter/gestures.dart';
@@ -73,7 +74,9 @@ class _LoginViewState extends State<LoginView> {
                 ),
                 SizedBox(height: 12.h),
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    navigateTo(ForgetPasswordView());
+                  },
                   child: Align(
                     alignment: AlignmentGeometry.topRight,
                     child: Text(

@@ -1,14 +1,70 @@
+import 'package:cosmetics/core/utils/constants/app_colors.dart';
+import 'package:cosmetics/core/utils/ui/app_button.dart';
+import 'package:cosmetics/core/utils/ui/app_image.dart';
+import 'package:cosmetics/core/utils/ui/arrow_back_widget.dart';
+import 'package:cosmetics/features/auth/widgets/phone_input.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ForgetPasswordView extends StatelessWidget {
   const ForgetPasswordView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: SafeArea(child: Column(children: [
+    return Scaffold(
+      body: SafeArea(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 13.r),
+          child: Column(
+            children: [
+              SizedBox(height: 16.h),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  ArrowBackWidget(),
+                  SizedBox(width: 115.w),
+                  Column(
+                    children: [
+                      SizedBox(height: 24.h),
+                      AppImage(
+                        image: 'logo_icon.png',
+                        height: 62.h,
+                        width: 67.w,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              SizedBox(height: 40.h),
+              Text(
+                'Forget Password',
+                style: TextStyle(
+                  fontSize: 24.sp,
+                  color: AppColors.textColor,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(height: 40.h),
+              Text(
+                'Please enter your phone number below \n       to recovery your password.',
+                style: TextStyle(
+                  color: Color(0xFF8E8EA9),
+                  fontWeight: FontWeight.w400,
+                  fontSize: 14.sp,
+                ),
+              ),
+              SizedBox(height: 45.h),
+              PhoneInput(),
+              SizedBox(height: 56.h),
 
-      ],)),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 61.r),
+                child: AppButton(text: 'Next'),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
