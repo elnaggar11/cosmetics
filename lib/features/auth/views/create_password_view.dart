@@ -2,6 +2,7 @@ import 'package:cosmetics/core/utils/constants/app_colors.dart';
 import 'package:cosmetics/core/utils/ui/app_button.dart';
 import 'package:cosmetics/core/utils/ui/app_image.dart';
 import 'package:cosmetics/core/utils/ui/custom_text_field.dart';
+import 'package:cosmetics/core/utils/ui/success_massage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -18,7 +19,7 @@ class _CreatePasswordViewState extends State<CreatePasswordView> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: GestureDetector(
+        child: SingleChildScrollView(
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 13.r),
             child: Column(
@@ -87,7 +88,17 @@ class _CreatePasswordViewState extends State<CreatePasswordView> {
                 SizedBox(height: 70.h),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 30.h),
-                  child: AppButton(text: 'Confirm'),
+                  child: AppButton(
+                    text: 'Confirm',
+                    onTap: () {
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return SuccessMassage(isRegister: false);
+                        },
+                      );
+                    },
+                  ),
                 ),
               ],
             ),

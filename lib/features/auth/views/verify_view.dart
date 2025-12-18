@@ -1,14 +1,18 @@
 import 'dart:async';
 
 import 'package:cosmetics/core/utils/constants/app_colors.dart';
+import 'package:cosmetics/core/utils/helper/navigate.dart';
 import 'package:cosmetics/core/utils/ui/app_button.dart';
 import 'package:cosmetics/core/utils/ui/pin_code_text_field_widget.dart';
+import 'package:cosmetics/core/utils/ui/success_massage.dart';
+import 'package:cosmetics/features/auth/views/create_password_view.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class VerifyView extends StatefulWidget {
-  const VerifyView({super.key});
+  const VerifyView({super.key, required this.isRegister});
+  final bool isRegister;
 
   @override
   State<VerifyView> createState() => _VerifyViewState();
@@ -134,7 +138,23 @@ class _VerifyViewState extends State<VerifyView> {
                 SizedBox(height: 113.h),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 28.r),
-                  child: AppButton(text: 'Done', onTap: () {}),
+                  child: AppButton(
+                    text: 'Done',
+                    onTap: () {
+                      if (widget.isRegister == true) {
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return SuccessMassage(
+                              isRegister: widget.isRegister,
+                            );
+                          },
+                        );
+                      } else {
+                        navigateTo(CreatePasswordView());
+                      }
+                    },
+                  ),
                 ),
               ],
             ),

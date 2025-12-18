@@ -64,7 +64,7 @@ class ForgetPasswordView extends StatelessWidget {
                   child: AppButton(
                     text: 'Next',
                     onTap: () {
-                      navigateTo(VerifyView());
+                      navigateTo(VerifyView(isRegister: false));
                     },
                   ),
                 ),

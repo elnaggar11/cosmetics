@@ -3,7 +3,6 @@ import 'package:cosmetics/core/utils/helper/navigate.dart';
 import 'package:cosmetics/core/utils/ui/app_button.dart';
 import 'package:cosmetics/core/utils/ui/app_image.dart';
 import 'package:cosmetics/core/utils/ui/custom_text_field.dart';
-import 'package:cosmetics/core/utils/ui/success_massage.dart';
 import 'package:cosmetics/features/auth/views/forget_password_view.dart';
 import 'package:cosmetics/features/auth/views/register_view.dart';
 import 'package:cosmetics/features/auth/widgets/phone_input.dart';
@@ -95,17 +94,7 @@ class _LoginViewState extends State<LoginView> {
                     horizontal: 40.0,
                     vertical: 20.0,
                   ),
-                  child: AppButton(
-                    text: 'Login',
-                    onTap: () {
-                      showDialog(
-                        context: context,
-                        builder: (context) {
-                          return SuccessMassage();
-                        },
-                      );
-                    },
-                  ),
+                  child: AppButton(text: 'Login', onTap: () {}),
                 ),
                 SizedBox(height: 80.h),
                 Text.rich(

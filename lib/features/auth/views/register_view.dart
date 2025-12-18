@@ -11,13 +11,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class RegisterView extends StatefulWidget {
   const RegisterView({super.key});
-
   @override
   State<RegisterView> createState() => _RegisterViewState();
 }
 
 class _RegisterViewState extends State<RegisterView> {
   bool _isPasswordVisible = true;
+  bool isRegister = true;
 
   @override
   Widget build(BuildContext context) {
@@ -96,7 +96,7 @@ class _RegisterViewState extends State<RegisterView> {
                   child: AppButton(
                     text: 'Next',
                     onTap: () {
-                      navigateTo(VerifyView());
+                      navigateTo(VerifyView(isRegister: isRegister));
                     },
                   ),
                 ),
