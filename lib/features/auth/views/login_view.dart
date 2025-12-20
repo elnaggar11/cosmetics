@@ -6,6 +6,7 @@ import 'package:cosmetics/core/utils/ui/custom_text_field.dart';
 import 'package:cosmetics/features/auth/views/forget_password_view.dart';
 import 'package:cosmetics/features/auth/views/register_view.dart';
 import 'package:cosmetics/features/auth/widgets/phone_input.dart';
+import 'package:cosmetics/features/home/view.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -94,7 +95,12 @@ class _LoginViewState extends State<LoginView> {
                     horizontal: 40.0,
                     vertical: 20.0,
                   ),
-                  child: AppButton(text: 'Login', onTap: () {}),
+                  child: AppButton(
+                    text: 'Login',
+                    onTap: () {
+                      navigateTo(HomeView(), canPop: false);
+                    },
+                  ),
                 ),
                 SizedBox(height: 80.h),
                 Text.rich(

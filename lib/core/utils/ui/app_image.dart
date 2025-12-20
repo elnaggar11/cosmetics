@@ -63,6 +63,9 @@ class _AppImageState extends State<AppImage>
               fit: myFit,
               width: widget.width,
               height: widget.height,
+              colorFilter: widget.color == null
+                  ? null
+                  : ColorFilter.mode(widget.color!, BlendMode.srcIn),
             );
           } else if (widget.image.startsWith("http")) {
             child = Image.network(
