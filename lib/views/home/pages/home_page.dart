@@ -9,7 +9,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffD2D2D2),
+      backgroundColor: Color(0xffD6D6D6),
       body: SafeArea(
         child: SingleChildScrollView(
           padding: EdgeInsets.symmetric(horizontal: 13.r),
@@ -111,9 +111,6 @@ class HomePage extends StatelessWidget {
                   return Card(
                     color: Color(0xffD2D2D2),
                     elevation: 6,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
                     child: Padding(
                       padding: EdgeInsets.all(8.h),
                       child: Column(
