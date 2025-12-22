@@ -157,20 +157,14 @@ class HomePage extends StatelessWidget {
                               color: Color(0xff70839C),
                             ),
                           ),
-
-                          //font-family: Montserrat;
-                          // font-weight: 700;
-                          // font-style: Bold;
-                          // font-size: 12px;
-                          // leading-trim: NONE;
-                          // line-height: 10px;
-                          // letter-spacing: 1px;
                         ],
                       ),
                     ),
                   );
                 },
               ),
+
+              SizedBox(height: 100.h),
             ],
           ),
         ),
