@@ -1,24 +1,25 @@
-import 'package:cosmetics/core/utils/constants/app_colors.dart';
-import 'package:cosmetics/core/utils/helper/navigate.dart';
-import 'package:cosmetics/core/utils/ui/app_button.dart';
-import 'package:cosmetics/core/utils/ui/app_image.dart';
-import 'package:cosmetics/core/utils/ui/custom_text_field.dart';
-import 'package:cosmetics/features/auth/views/verify_view.dart';
-import 'package:cosmetics/features/auth/widgets/phone_input.dart';
+import 'package:cosmetics/core/constants/app_colors.dart';
+import 'package:cosmetics/core/helper/navigate.dart';
+import 'package:cosmetics/core/ui/app_button.dart';
+import 'package:cosmetics/core/ui/app_image.dart';
+import 'package:cosmetics/core/ui/custom_text_field.dart';
+import 'package:cosmetics/views/auth/forget_password_view.dart';
+import 'package:cosmetics/views/auth/register_view.dart';
+import 'package:cosmetics/views/auth/widgets/phone_input.dart';
+import 'package:cosmetics/views/home/view.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class RegisterView extends StatefulWidget {
-  const RegisterView({super.key});
+class LoginView extends StatefulWidget {
+  const LoginView({super.key});
+
   @override
-  State<RegisterView> createState() => _RegisterViewState();
+  State<LoginView> createState() => _LoginViewState();
 }
 
-class _RegisterViewState extends State<RegisterView> {
+class _LoginViewState extends State<LoginView> {
   bool _isPasswordVisible = true;
-  bool isRegister = true;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,14 +31,10 @@ class _RegisterViewState extends State<RegisterView> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SizedBox(height: 40.h),
-                Image.asset(
-                  'assets/images/logo_icon.png',
-                  height: 62.h,
-                  width: 67.w,
-                ),
-                SizedBox(height: 40.h),
+                Image.asset('assets/images/login.png'),
+                SizedBox(height: 20.h),
                 Text(
-                  'Create Account',
+                  'Login Now',
                   style: TextStyle(
                     fontSize: 24.sp,
                     fontWeight: FontWeight.bold,
@@ -45,11 +42,18 @@ class _RegisterViewState extends State<RegisterView> {
                     fontFamily: 'montserrat',
                   ),
                 ),
-                SizedBox(height: 50.h),
-                CustomTextField(hintText: 'Your Full Name'),
-                SizedBox(height: 16.h),
+                SizedBox(height: 14.h),
+                Text(
+                  'Please enter the details below to continue',
+                  style: TextStyle(
+                    fontSize: 14.sp,
+                    color: Colors.grey,
+                    fontFamily: 'montserrat',
+                  ),
+                ),
+                SizedBox(height: 25.h),
                 PhoneInput(),
-                SizedBox(height: 16.h),
+                SizedBox(height: 7.h),
                 CustomTextField(
                   hintText: 'Your Password',
                   obscureText: _isPasswordVisible,
@@ -69,41 +73,39 @@ class _RegisterViewState extends State<RegisterView> {
                   ),
                 ),
                 SizedBox(height: 12.h),
-                CustomTextField(
-                  hintText: 'Your Password again',
-                  obscureText: _isPasswordVisible,
-                  suffixIcon: SizedBox(
-                    height: 24.h,
-                    width: 24.w,
-                    child: Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: AppImage(
-                        image: 'password_view.json',
-                        onLottieClicked: () {
-                          _isPasswordVisible = !_isPasswordVisible;
-                          setState(() {});
-                        },
+                GestureDetector(
+                  onTap: () {
+                    navigateTo(ForgetPasswordView());
+                  },
+                  child: Align(
+                    alignment: AlignmentGeometry.topRight,
+                    child: Text(
+                      'Forgot Password?',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 12.sp,
+                        color: AppColors.primaryColor,
+                        fontFamily: 'montserrat',
                       ),
                     ),
                   ),
                 ),
-                SizedBox(height: 12.h),
                 Padding(
                   padding: const EdgeInsets.symmetric(
                     horizontal: 40.0,
                     vertical: 20.0,
                   ),
                   child: AppButton(
-                    text: 'Next',
+                    text: 'Login',
                     onTap: () {
-                      navigateTo(VerifyView(isRegister: isRegister));
+                      navigateTo(HomeView(), canPop: false);
                     },
                   ),
                 ),
                 SizedBox(height: 80.h),
                 Text.rich(
                   TextSpan(
-                    text: "Have an account? ",
+                    text: "Don't have an account? ",
                     style: TextStyle(
                       fontSize: 12.sp,
                       color: Color(0xff434C6D),
@@ -112,10 +114,10 @@ class _RegisterViewState extends State<RegisterView> {
                     ),
                     children: [
                       TextSpan(
-                        text: 'Login',
+                        text: 'Register',
                         recognizer: TapGestureRecognizer()
                           ..onTap = () {
-                            Navigator.pop(context);
+                            navigateTo(RegisterView());
                           },
                         style: TextStyle(
                           fontSize: 12.sp,

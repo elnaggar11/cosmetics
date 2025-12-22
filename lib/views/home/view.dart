@@ -1,9 +1,9 @@
-import 'package:cosmetics/core/utils/constants/app_colors.dart';
-import 'package:cosmetics/core/utils/ui/app_image.dart';
-import 'package:cosmetics/features/home/views/cart.dart';
-import 'package:cosmetics/features/home/views/categories.dart';
-import 'package:cosmetics/features/home/views/home.dart';
-import 'package:cosmetics/features/home/views/profile.dart';
+import 'package:cosmetics/core/constants/app_colors.dart';
+import 'package:cosmetics/core/ui/app_image.dart';
+import 'package:cosmetics/views/home/pages/cart.dart';
+import 'package:cosmetics/views/home/pages/categories.dart';
+import 'package:cosmetics/views/home/pages/home.dart';
+import 'package:cosmetics/views/home/pages/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

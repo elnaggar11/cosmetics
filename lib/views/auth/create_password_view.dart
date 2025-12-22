@@ -1,8 +1,8 @@
-import 'package:cosmetics/core/utils/constants/app_colors.dart';
-import 'package:cosmetics/core/utils/ui/app_button.dart';
-import 'package:cosmetics/core/utils/ui/app_image.dart';
-import 'package:cosmetics/core/utils/ui/custom_text_field.dart';
-import 'package:cosmetics/core/utils/ui/success_massage.dart';
+import 'package:cosmetics/core/constants/app_colors.dart';
+import 'package:cosmetics/core/ui/app_button.dart';
+import 'package:cosmetics/core/ui/app_image.dart';
+import 'package:cosmetics/core/ui/custom_text_field.dart';
+import 'package:cosmetics/core/ui/success_massage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

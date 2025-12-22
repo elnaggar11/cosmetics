@@ -1,11 +1,12 @@
 import 'dart:async';
 
-import 'package:cosmetics/core/utils/constants/app_colors.dart';
-import 'package:cosmetics/core/utils/helper/navigate.dart';
-import 'package:cosmetics/core/utils/ui/app_button.dart';
-import 'package:cosmetics/core/utils/ui/pin_code_text_field_widget.dart';
-import 'package:cosmetics/core/utils/ui/success_massage.dart';
-import 'package:cosmetics/features/auth/views/create_password_view.dart';
+import 'package:cosmetics/core/constants/app_colors.dart';
+import 'package:cosmetics/core/helper/navigate.dart';
+import 'package:cosmetics/core/ui/app_button.dart';
+
+import 'package:cosmetics/core/ui/pin_code_text_field_widget.dart';
+import 'package:cosmetics/core/ui/success_massage.dart';
+import 'package:cosmetics/views/auth/create_password_view.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

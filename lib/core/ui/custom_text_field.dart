@@ -1,4 +1,4 @@
-import 'package:cosmetics/core/utils/constants/app_colors.dart';
+import 'package:cosmetics/core/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -10,12 +10,14 @@ class CustomTextField extends StatelessWidget {
     this.suffixIcon,
     this.keyboardType,
     this.obscureText = false,
+    this.borderRadius = 8,
   });
   final String hintText;
   final Widget? prefixIcon;
   final Widget? suffixIcon;
   final TextInputType? keyboardType;
   final bool obscureText;
+  final double borderRadius;
 
   @override
   Widget build(BuildContext context) {
@@ -43,17 +45,32 @@ class CustomTextField extends StatelessWidget {
           fontWeight: FontWeight.w400,
           fontFamily: 'montserrat',
         ),
-        enabledBorder: outLineInputBorder(color: Colors.grey),
-        focusedBorder: outLineInputBorder(color: AppColors.primaryColor),
-        errorBorder: outLineInputBorder(color: Colors.red),
-        focusedErrorBorder: outLineInputBorder(color: Colors.red),
+        enabledBorder: outLineInputBorder(
+          color: Colors.grey,
+          borderRadius: borderRadius,
+        ),
+        focusedBorder: outLineInputBorder(
+          color: AppColors.primaryColor,
+          borderRadius: borderRadius,
+        ),
+        errorBorder: outLineInputBorder(
+          color: Colors.red,
+          borderRadius: borderRadius,
+        ),
+        focusedErrorBorder: outLineInputBorder(
+          color: Colors.red,
+          borderRadius: borderRadius,
+        ),
       ),
     );
   }
 
-  OutlineInputBorder outLineInputBorder({required Color color}) {
+  OutlineInputBorder outLineInputBorder({
+    required Color color,
+    double borderRadius = 8,
+  }) {
     return OutlineInputBorder(
-      borderRadius: BorderRadius.circular(8),
+      borderRadius: BorderRadius.circular(borderRadius),
       borderSide: BorderSide(color: color),
     );
   }

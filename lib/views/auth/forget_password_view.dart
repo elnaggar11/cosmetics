@@ -1,10 +1,11 @@
-import 'package:cosmetics/core/utils/constants/app_colors.dart';
-import 'package:cosmetics/core/utils/helper/navigate.dart';
-import 'package:cosmetics/core/utils/ui/app_button.dart';
-import 'package:cosmetics/core/utils/ui/app_image.dart';
-import 'package:cosmetics/core/utils/ui/arrow_back_widget.dart';
-import 'package:cosmetics/features/auth/views/verify_view.dart';
-import 'package:cosmetics/features/auth/widgets/phone_input.dart';
+import 'package:cosmetics/core/constants/app_colors.dart';
+import 'package:cosmetics/core/helper/navigate.dart';
+import 'package:cosmetics/core/ui/app_button.dart';
+
+import 'package:cosmetics/core/ui/app_image.dart';
+import 'package:cosmetics/core/ui/arrow_back_widget.dart';
+import 'package:cosmetics/views/auth/verify_view.dart';
+import 'package:cosmetics/views/auth/widgets/phone_input.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
