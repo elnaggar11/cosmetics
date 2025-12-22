@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class Cart extends StatelessWidget {
-  const Cart({super.key});
+class CategoriesPage extends StatelessWidget {
+  const CategoriesPage({super.key});
 
   @override
   Widget build(BuildContext context) {

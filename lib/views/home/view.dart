@@ -1,9 +1,9 @@
 import 'package:cosmetics/core/constants/app_colors.dart';
 import 'package:cosmetics/core/ui/app_image.dart';
-import 'package:cosmetics/views/home/pages/cart.dart';
-import 'package:cosmetics/views/home/pages/categories.dart';
-import 'package:cosmetics/views/home/pages/home.dart';
-import 'package:cosmetics/views/home/pages/profile.dart';
+import 'package:cosmetics/views/home/pages/cart_page.dart';
+import 'package:cosmetics/views/home/pages/categories_page.dart';
+import 'package:cosmetics/views/home/pages/home_page.dart';
+import 'package:cosmetics/views/home/pages/profile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -16,10 +16,10 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   final List _list = [
-    _Model(icon: 'nav_bar_home.svg', page: Home()),
-    _Model(icon: 'nav_bar_categories.svg', page: Categories()),
-    _Model(icon: 'nav_bar_cart.svg', page: Cart()),
-    _Model(icon: 'nav_bar_profile.svg', page: Profile()),
+    _Model(icon: 'nav_bar_home.svg', page: HomePage()),
+    _Model(icon: 'nav_bar_categories.svg', page: CategoriesPage()),
+    _Model(icon: 'nav_bar_cart.svg', page: CartPage()),
+    _Model(icon: 'nav_bar_profile.svg', page: ProfilePage()),
   ];
   int currentIndex = 0;
   @override
