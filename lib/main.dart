@@ -1,5 +1,5 @@
 import 'package:cosmetics/core/helper/navigate.dart';
-import 'package:cosmetics/views/home/view.dart';
+import 'package:cosmetics/views/checkout/view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         navigatorKey: navKey,
         debugShowCheckedModeBanner: false,
-        home: HomeView(),
+        home: CheckOut(),
       ),
     );
   }
