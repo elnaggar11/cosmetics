@@ -3,8 +3,8 @@ import 'package:cosmetics/core/ui/app_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CheckOut extends StatelessWidget {
-  const CheckOut({super.key});
+class CheckOutView extends StatelessWidget {
+  const CheckOutView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,11 +20,9 @@ class CheckOut extends StatelessWidget {
                   Spacer(),
                   Text(
                     'Checkout',
-                    style: TextStyle(
-                      fontFamily: 'montserrat',
-                      fontSize: 24.sp,
-                      fontWeight: FontWeight.bold,
+                    style: Theme.of(context).textTheme.headlineSmall!.copyWith(
                       color: Color(0xff434C6D),
+                      fontVariations: [FontVariation('wght', 700)],
                     ),
                   ),
                   Spacer(),
@@ -49,11 +47,9 @@ class CheckOut extends StatelessWidget {
                     SizedBox(height: 20.h),
                     Text(
                       'Delivery to',
-                      style: TextStyle(
+                      style: Theme.of(context).textTheme.labelSmall!.copyWith(
                         color: Color(0xff434C6D),
-                        fontSize: 14.sp,
-                        fontWeight: FontWeight.w500,
-                        fontFamily: 'Montserrat',
+                        fontVariations: [FontVariation('wght', 500)],
                       ),
                     ),
                     SizedBox(height: 18.h),
@@ -67,11 +63,9 @@ class CheckOut extends StatelessWidget {
                     SizedBox(height: 25.h),
                     Text(
                       'Payment Method',
-                      style: TextStyle(
+                      style: Theme.of(context).textTheme.labelSmall!.copyWith(
                         color: Color(0xff434C6D),
-                        fontSize: 14.sp,
-                        fontWeight: FontWeight.w500,
-                        fontFamily: 'Montserrat',
+                        fontVariations: [FontVariation('wght', 500)],
                       ),
                     ),
                     SizedBox(height: 18.h),
@@ -97,18 +91,16 @@ class CheckOut extends StatelessWidget {
                     SizedBox(height: 10.h),
                     Text(
                       '- REVIEW PAYMENT',
-                      style: TextStyle(
-                        fontSize: 12.sp,
-                        fontWeight: FontWeight.w400,
+                      style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                        fontVariations: [FontVariation('wght', 500)],
                       ),
                     ),
                     SizedBox(height: 10.h),
 
                     Text(
                       'PAYMENT SUMMARY',
-                      style: TextStyle(
-                        fontSize: 20.sp,
-                        fontWeight: FontWeight.w400,
+                      style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                        fontVariations: [FontVariation('wght', 500)],
                       ),
                     ),
                     SizedBox(height: 20.h),
@@ -124,7 +116,7 @@ class CheckOut extends StatelessWidget {
                     SizedBox(height: 10.h),
                     const _Texts(title: 'TOTAL + VAT', subTitle: '16.100 EGP'),
                     SizedBox(height: 20.h),
-                    AppButton(text: 'ORDER', image: 'order.svg'),
+                    AppButton(text: 'ORDER', image: 'order.svg', onTap: () {}),
                   ],
                 ),
               ),
@@ -166,6 +158,7 @@ class _Item extends StatelessWidget {
                   text: "apply",
                   fontSize: 12.sp,
                   verticalPadding: 0,
+                  onTap: () {},
                 ),
               )
             : AppImage(image: 'down_arrow.svg'),
@@ -186,11 +179,17 @@ class _Texts extends StatelessWidget {
       children: [
         Text(
           title,
-          style: TextStyle(fontSize: 12.sp, fontWeight: FontWeight.w400),
+          style: Theme.of(context).textTheme.bodySmall!.copyWith(
+            color: Colors.black,
+            fontVariations: [FontVariation('wght', 400)],
+          ),
         ),
         Text(
           subTitle,
-          style: TextStyle(fontSize: 12.sp, fontWeight: FontWeight.w500),
+          style: Theme.of(context).textTheme.bodySmall!.copyWith(
+            color: Colors.black,
+            fontVariations: [FontVariation('wght', 500)],
+          ),
         ),
       ],
     );

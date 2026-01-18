@@ -1,6 +1,6 @@
 import 'package:cosmetics/core/logic/helper_methods.dart';
 import 'package:cosmetics/core/logic/theme.dart';
-import 'package:cosmetics/views/auth/login_view.dart';
+import 'package:cosmetics/views/checkout/view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
           theme: theme(),
           navigatorKey: navKey,
           debugShowCheckedModeBanner: false,
-          home: LoginView(),
+          home: CheckOutView(),
         );
       },
     );
