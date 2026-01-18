@@ -42,12 +42,14 @@ class HomePage extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               Text.rich(
-                                style: TextStyle(
-                                  fontFamily: 'montserrat',
-                                  fontSize: 16.r,
-                                  fontWeight: FontWeight.w700,
-                                  color: Color(0xff62322D),
-                                ),
+                                style: Theme.of(context).textTheme.bodyMedium!
+                                    .copyWith(
+                                      color: Color(0xff62322D),
+                                      fontVariations: [
+                                        FontVariation('wght', 700),
+                                      ],
+                                    ),
+
                                 TextSpan(
                                   children: [
                                     TextSpan(text: '50% OFF DISCOUNT\n'),
@@ -64,12 +66,14 @@ class HomePage extends StatelessWidget {
                             children: [
                               AppImage(image: 'offer.svg'),
                               Text.rich(
-                                style: TextStyle(
-                                  fontFamily: 'montserrat',
-                                  fontSize: 16.r,
-                                  fontWeight: FontWeight.w700,
-                                  color: Color(0xff434C6D),
-                                ),
+                                style: Theme.of(context).textTheme.bodyMedium!
+                                    .copyWith(
+                                      color: Color(0xff434C6D),
+                                      fontVariations: [
+                                        FontVariation('wght', 700),
+                                      ],
+                                    ),
+
                                 TextSpan(
                                   children: [
                                     TextSpan(text: 'Hurry up!\n'),
@@ -88,11 +92,9 @@ class HomePage extends StatelessWidget {
               SizedBox(height: 26.h),
               Text(
                 'Top rated products',
-                style: TextStyle(
-                  fontFamily: 'montserrat',
-                  fontSize: 16.r,
-                  fontWeight: FontWeight.w700,
+                style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                   color: Color(0xff434C6D),
+                  fontVariations: [FontVariation('wght', 700)],
                 ),
               ),
               SizedBox(height: 14.h),
@@ -139,23 +141,22 @@ class HomePage extends StatelessWidget {
                           SizedBox(height: 11.h),
                           Text(
                             'Face tint / lip tint',
-                            style: TextStyle(
-                              fontSize: 14.sp,
-                              fontWeight: FontWeight.w600,
-                              fontFamily: 'montserrat',
-                              color: Color(0xff434C6D),
-                            ),
+                            style: Theme.of(context).textTheme.bodyMedium!
+                                .copyWith(
+                                  color: Color(0xff434C6D),
+                                  fontVariations: [FontVariation('wght', 600)],
+                                ),
                           ),
+
                           SizedBox(height: 11.h),
 
                           Text(
                             '\$44.99',
-                            style: TextStyle(
-                              fontSize: 12.sp,
-                              fontWeight: FontWeight.bold,
-                              fontFamily: 'montserrat',
-                              color: Color(0xff70839C),
-                            ),
+                            style: Theme.of(context).textTheme.bodyMedium!
+                                .copyWith(
+                                  color: Color(0xff70839C),
+                                  fontVariations: [FontVariation('wght', 700)],
+                                ),
                           ),
                         ],
                       ),
