@@ -32,11 +32,9 @@ class _CategoriesPageState extends State<CategoriesPage> {
                 padding: EdgeInsets.symmetric(vertical: 24.r),
                 child: Text(
                   'Categories',
-                  style: TextStyle(
-                    fontFamily: 'montserrat',
-                    fontSize: 24.sp,
-                    fontWeight: FontWeight.bold,
+                  style: Theme.of(context).textTheme.headlineSmall!.copyWith(
                     color: Color(0xff434C6D),
+                    fontVariations: [FontVariation('wght', 700)],
                   ),
                 ),
               ),
@@ -59,12 +57,13 @@ class _CategoriesPageState extends State<CategoriesPage> {
                             SizedBox(width: 25.w),
                             Text(
                               _list[index].title,
-                              style: TextStyle(
-                                fontFamily: 'montserrat',
-                                fontSize: 14.sp,
-                                fontWeight: FontWeight.w600,
-                                color: Color(0xff434C6D),
-                              ),
+                              style: Theme.of(context).textTheme.labelSmall!
+                                  .copyWith(
+                                    color: Color(0xff434C6D),
+                                    fontVariations: [
+                                      FontVariation('wght', 600),
+                                    ],
+                                  ),
                             ),
 
                             const Spacer(),
