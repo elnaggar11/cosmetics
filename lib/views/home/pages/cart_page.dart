@@ -24,12 +24,11 @@ class CartPage extends StatelessWidget {
                     child: Center(
                       child: Text(
                         'My Cart',
-                        style: TextStyle(
-                          fontFamily: 'montserrat',
-                          fontSize: 24.sp,
-                          fontWeight: FontWeight.bold,
-                          color: Color(0xff434C6D),
-                        ),
+                        style: Theme.of(context).textTheme.headlineSmall!
+                            .copyWith(
+                              color: Color(0xff434C6D),
+                              fontVariations: [FontVariation('wght', 700)],
+                            ),
                       ),
                     ),
                   ),
@@ -39,11 +38,9 @@ class CartPage extends StatelessWidget {
               SizedBox(height: 24.h),
               Text(
                 'You have 4 products in your cart',
-                style: TextStyle(
-                  fontFamily: 'montserrat',
-                  fontWeight: FontWeight.w400,
-                  fontSize: 12.sp,
+                style: Theme.of(context).textTheme.labelSmall!.copyWith(
                   color: Color(0x934C6D8C),
+                  fontVariations: [FontVariation('wght', 400)],
                 ),
               ),
               SizedBox(height: 12.h),
@@ -94,29 +91,23 @@ class _Item extends StatelessWidget {
                   children: [
                     TextSpan(
                       text: 'Note Cosmetics\n',
-                      style: TextStyle(
-                        fontSize: 12.sp,
-                        fontWeight: FontWeight.w700,
-                        fontFamily: 'montserrat',
+                      style: Theme.of(context).textTheme.labelSmall!.copyWith(
                         color: Color(0xff3B4569),
+                        fontVariations: [FontVariation('wght', 700)],
                       ),
                     ),
                     TextSpan(
                       text: 'Ultra rich mascara for lashes\n \n',
-                      style: TextStyle(
-                        fontSize: 12.sp,
-                        fontWeight: FontWeight.w500,
-                        fontFamily: 'montserrat',
+                      style: Theme.of(context).textTheme.labelSmall!.copyWith(
                         color: Color(0xff3B4569).withAlpha(75),
+                        fontVariations: [FontVariation('wght', 500)],
                       ),
                     ),
                     TextSpan(
                       text: '350 EGP',
-                      style: TextStyle(
-                        fontSize: 12.sp,
-                        fontWeight: FontWeight.w700,
-                        fontFamily: 'montserrat',
+                      style: Theme.of(context).textTheme.labelSmall!.copyWith(
                         color: Color(0xff3B4569),
+                        fontVariations: [FontVariation('wght', 700)],
                       ),
                     ),
                   ],
