@@ -1,4 +1,4 @@
-import 'package:cosmetics/core/helper/navigate.dart';
+import 'package:cosmetics/core/logic/helper_methods.dart';
 import 'package:cosmetics/core/ui/app_image.dart';
 
 import 'package:cosmetics/views/onboarding.dart';

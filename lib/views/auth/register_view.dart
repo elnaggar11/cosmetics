@@ -1,11 +1,8 @@
-import 'package:cosmetics/core/constants/app_colors.dart';
-import 'package:cosmetics/core/helper/navigate.dart';
+import 'package:cosmetics/core/logic/helper_methods.dart';
 import 'package:cosmetics/core/ui/app_button.dart';
 
-import 'package:cosmetics/core/ui/app_image.dart';
-import 'package:cosmetics/core/ui/custom_text_field.dart';
+import 'package:cosmetics/core/ui/app_input.dart';
 import 'package:cosmetics/views/auth/verify_view.dart';
-import 'package:cosmetics/views/auth/widgets/phone_input.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -17,7 +14,6 @@ class RegisterView extends StatefulWidget {
 }
 
 class _RegisterViewState extends State<RegisterView> {
-  bool _isPasswordVisible = true;
   bool isRegister = true;
 
   @override
@@ -39,55 +35,21 @@ class _RegisterViewState extends State<RegisterView> {
                 SizedBox(height: 40.h),
                 Text(
                   'Create Account',
-                  style: TextStyle(
-                    fontSize: 24.sp,
-                    fontWeight: FontWeight.bold,
-                    color: AppColors.textColor,
-                    fontFamily: 'montserrat',
-                  ),
+                  style: Theme.of(context).textTheme.headlineSmall,
                 ),
                 SizedBox(height: 50.h),
-                CustomTextField(hintText: 'Your Full Name'),
+                AppInput(hintText: 'Your Full Name'),
                 SizedBox(height: 16.h),
-                PhoneInput(),
-                SizedBox(height: 16.h),
-                CustomTextField(
-                  hintText: 'Your Password',
-                  obscureText: _isPasswordVisible,
-                  suffixIcon: SizedBox(
-                    height: 24.h,
-                    width: 24.w,
-                    child: Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: AppImage(
-                        image: 'password_view.json',
-                        onLottieClicked: () {
-                          _isPasswordVisible = !_isPasswordVisible;
-                          setState(() {});
-                        },
-                      ),
-                    ),
-                  ),
+                Row(
+                  children: [
+                    AppInput(withCountryCode: true),
+                    Expanded(child: AppInput(hintText: 'Phone Number')),
+                  ],
                 ),
+                SizedBox(height: 16.h),
+                AppInput(isPassword: true),
                 SizedBox(height: 12.h),
-                CustomTextField(
-                  hintText: 'Your Password again',
-                  obscureText: _isPasswordVisible,
-                  suffixIcon: SizedBox(
-                    height: 24.h,
-                    width: 24.w,
-                    child: Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: AppImage(
-                        image: 'password_view.json',
-                        onLottieClicked: () {
-                          _isPasswordVisible = !_isPasswordVisible;
-                          setState(() {});
-                        },
-                      ),
-                    ),
-                  ),
-                ),
+                AppInput(isPassword: true, hintText: 'Your Password again'),
                 SizedBox(height: 12.h),
                 Padding(
                   padding: const EdgeInsets.symmetric(
@@ -105,12 +67,9 @@ class _RegisterViewState extends State<RegisterView> {
                 Text.rich(
                   TextSpan(
                     text: "Have an account? ",
-                    style: TextStyle(
-                      fontSize: 12.sp,
-                      color: Color(0xff434C6D),
-                      fontFamily: 'montserrat',
-                      fontWeight: FontWeight.w400,
-                    ),
+                    style: Theme.of(
+                      context,
+                    ).textTheme.bodySmall!.copyWith(color: Color(0xff434C6D)),
                     children: [
                       TextSpan(
                         text: 'Login',
@@ -118,10 +77,8 @@ class _RegisterViewState extends State<RegisterView> {
                           ..onTap = () {
                             Navigator.pop(context);
                           },
-                        style: TextStyle(
-                          fontSize: 12.sp,
-                          color: AppColors.primaryColor,
-                          fontFamily: 'montserrat',
+                        style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                          color: Color(0xff434C6D),
                           fontWeight: FontWeight.w600,
                         ),
                       ),

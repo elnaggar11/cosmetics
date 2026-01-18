@@ -1,4 +1,3 @@
-import 'package:cosmetics/core/constants/app_colors.dart';
 import 'package:cosmetics/core/ui/app_image.dart';
 import 'package:cosmetics/views/home/pages/cart_page.dart';
 import 'package:cosmetics/views/home/pages/categories_page.dart';
@@ -58,7 +57,9 @@ class _HomeViewState extends State<HomeView> {
             (index) => BottomNavigationBarItem(
               icon: AppImage(
                 image: _list[index].icon,
-                color: currentIndex == index ? AppColors.primaryColor : null,
+                color: currentIndex == index
+                    ? Theme.of(context).colorScheme.secondary
+                    : null,
               ),
               label: '',
             ),

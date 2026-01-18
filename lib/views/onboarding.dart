@@ -1,5 +1,4 @@
-import 'package:cosmetics/core/constants/app_colors.dart';
-import 'package:cosmetics/core/helper/navigate.dart';
+import 'package:cosmetics/core/logic/helper_methods.dart';
 import 'package:cosmetics/core/ui/app_button.dart';
 
 import 'package:cosmetics/views/auth/login_view.dart';
@@ -77,7 +76,7 @@ class _OnboardingViewState extends State<OnboardingView> {
                   : Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: AppButton(
-                        color: AppColors.textColor,
+                        color: Theme.of(context).colorScheme.secondary,
                         text: 'Get Started',
                         onTap: () {
                           navigateTo(const LoginView(), canPop: false);
@@ -97,14 +96,7 @@ class _OnboardingViewState extends State<OnboardingView> {
       padding: const EdgeInsets.only(right: 20, top: 10),
       child: Align(
         alignment: AlignmentGeometry.topRight,
-        child: Text(
-          'skip',
-          style: TextStyle(
-            fontSize: 16.sp,
-            fontWeight: FontWeight.w600,
-            color: AppColors.textColor,
-          ),
-        ),
+        child: Text('skip', style: Theme.of(context).textTheme.bodyMedium),
       ),
     );
   }
@@ -122,21 +114,17 @@ class _OnboardingViewState extends State<OnboardingView> {
           SizedBox(height: 27.h),
           Text(
             text,
-            style: TextStyle(
+            style: Theme.of(context).textTheme.bodyMedium!.copyWith(
               fontWeight: FontWeight.w700,
               fontFamily: 'segoeui',
-              color: AppColors.textColor,
-              fontSize: 16.sp,
             ),
           ),
           SizedBox(height: 10.h),
           Text(
             sub,
-            style: TextStyle(
+            style: Theme.of(context).textTheme.bodyMedium!.copyWith(
               fontWeight: FontWeight.w400,
               fontFamily: 'segoeui',
-              color: AppColors.textColor,
-              fontSize: 16.sp,
             ),
           ),
         ],
@@ -151,7 +139,7 @@ class _OnboardingViewState extends State<OnboardingView> {
         height: 50.h,
         width: 50.w,
         decoration: BoxDecoration(
-          color: AppColors.textColor,
+          color: Theme.of(context).colorScheme.primary,
           borderRadius: BorderRadius.circular(8.r),
         ),
         child: Padding(

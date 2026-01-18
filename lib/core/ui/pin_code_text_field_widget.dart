@@ -1,4 +1,3 @@
-import 'package:cosmetics/core/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
@@ -22,8 +21,8 @@ class PinCodeTextFieldWidget extends StatelessWidget {
         activeFillColor: Colors.grey,
         selectedFillColor: Colors.grey,
         inactiveFillColor: Colors.grey,
-        activeColor: AppColors.primaryColor,
-        selectedColor: AppColors.primaryColor,
+        activeColor: Theme.of(context).colorScheme.secondary,
+        selectedColor: Theme.of(context).colorScheme.secondary,
         inactiveColor: Colors.grey.shade300,
         fieldHeight: 45.h,
         fieldWidth: 45.w,

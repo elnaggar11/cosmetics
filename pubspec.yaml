@@ -24,16 +24,14 @@ flutter:
     - assets/icons/
     - assets/lotties/
     - assets/fonts/
-    - assets/fonts/montserrat/
-    - assets/fonts/segoeui/
 
   fonts:
     - family: montserrat
       fonts:
-        - asset: assets/fonts/montserrat/montserrat.ttf
+        - asset: assets/fonts/montserrat.ttf
           weight: 400
 
     - family: segoeui
       fonts:
-        - asset: assets/fonts/segoeui/segoeui.ttf
+        - asset: assets/fonts/segoeui.ttf
           weight: 400

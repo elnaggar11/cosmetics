@@ -1,91 +1,57 @@
-import 'package:cosmetics/core/constants/app_colors.dart';
-import 'package:cosmetics/core/helper/navigate.dart';
+import 'package:cosmetics/core/logic/helper_methods.dart';
 import 'package:cosmetics/core/ui/app_button.dart';
 import 'package:cosmetics/core/ui/app_image.dart';
-import 'package:cosmetics/core/ui/custom_text_field.dart';
+import 'package:cosmetics/core/ui/app_input.dart';
 import 'package:cosmetics/views/auth/forget_password_view.dart';
 import 'package:cosmetics/views/auth/register_view.dart';
-import 'package:cosmetics/views/auth/widgets/phone_input.dart';
 import 'package:cosmetics/views/home/view.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class LoginView extends StatefulWidget {
+class LoginView extends StatelessWidget {
   const LoginView({super.key});
 
-  @override
-  State<LoginView> createState() => _LoginViewState();
-}
-
-class _LoginViewState extends State<LoginView> {
-  bool _isPasswordVisible = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 13.r),
-          child: SingleChildScrollView(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 13.r),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SizedBox(height: 40.h),
-                Image.asset('assets/images/login.png'),
+                AppImage(image: 'login.png'),
                 SizedBox(height: 20.h),
                 Text(
                   'Login Now',
-                  style: TextStyle(
-                    fontSize: 24.sp,
-                    fontWeight: FontWeight.bold,
-                    color: AppColors.textColor,
-                    fontFamily: 'montserrat',
+                  style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                    color: Theme.of(context).primaryColor,
                   ),
                 ),
                 SizedBox(height: 14.h),
                 Text(
                   'Please enter the details below to continue',
-                  style: TextStyle(
-                    fontSize: 14.sp,
-                    color: Colors.grey,
-                    fontFamily: 'montserrat',
-                  ),
+                  style: Theme.of(context).textTheme.labelSmall,
                 ),
                 SizedBox(height: 25.h),
-                PhoneInput(),
+                AppInput(withCountryCode: true, hintText: 'Phone Number'),
                 SizedBox(height: 7.h),
-                CustomTextField(
-                  hintText: 'Your Password',
-                  obscureText: _isPasswordVisible,
-                  suffixIcon: SizedBox(
-                    height: 24.h,
-                    width: 24.w,
-                    child: Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: AppImage(
-                        image: 'password_view.json',
-                        onLottieClicked: () {
-                          _isPasswordVisible = !_isPasswordVisible;
-                          setState(() {});
-                        },
-                      ),
-                    ),
-                  ),
-                ),
+                AppInput(isPassword: true, hintText: 'Your password'),
+
                 SizedBox(height: 12.h),
                 GestureDetector(
                   onTap: () {
                     navigateTo(ForgetPasswordView());
                   },
                   child: Align(
-                    alignment: AlignmentGeometry.topRight,
+                    alignment: Alignment.topRight,
                     child: Text(
                       'Forgot Password?',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        fontSize: 12.sp,
-                        color: AppColors.primaryColor,
-                        fontFamily: 'montserrat',
+                      style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                        color: Theme.of(context).primaryColor,
                       ),
                     ),
                   ),
@@ -106,11 +72,8 @@ class _LoginViewState extends State<LoginView> {
                 Text.rich(
                   TextSpan(
                     text: "Don't have an account? ",
-                    style: TextStyle(
-                      fontSize: 12.sp,
-                      color: Color(0xff434C6D),
-                      fontFamily: 'montserrat',
-                      fontWeight: FontWeight.w400,
+                    style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                      color: Theme.of(context).primaryColor,
                     ),
                     children: [
                       TextSpan(
@@ -119,10 +82,8 @@ class _LoginViewState extends State<LoginView> {
                           ..onTap = () {
                             navigateTo(RegisterView());
                           },
-                        style: TextStyle(
-                          fontSize: 12.sp,
-                          color: AppColors.primaryColor,
-                          fontFamily: 'montserrat',
+                        style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                          color: Theme.of(context).primaryColor,
                           fontWeight: FontWeight.w600,
                         ),
                       ),

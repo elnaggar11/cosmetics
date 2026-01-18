@@ -1,6 +1,5 @@
 import 'package:cosmetics/core/ui/app_button.dart';
 import 'package:cosmetics/core/ui/app_image.dart';
-import 'package:cosmetics/core/ui/arrow_back_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -18,7 +17,6 @@ class CheckOut extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 13.r, vertical: 20.r),
               child: Row(
                 children: [
-                  ArrowBackWidget(),
                   Spacer(),
                   Text(
                     'Checkout',

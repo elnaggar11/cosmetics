@@ -1,7 +1,6 @@
 import 'dart:async';
 
-import 'package:cosmetics/core/constants/app_colors.dart';
-import 'package:cosmetics/core/helper/navigate.dart';
+import 'package:cosmetics/core/logic/helper_methods.dart';
 import 'package:cosmetics/core/ui/app_button.dart';
 
 import 'package:cosmetics/core/ui/pin_code_text_field_widget.dart';
@@ -69,12 +68,7 @@ class _VerifyViewState extends State<VerifyView> {
                 SizedBox(height: 40.h),
                 Text(
                   'Verify Code',
-                  style: TextStyle(
-                    fontSize: 24.sp,
-                    fontWeight: FontWeight.bold,
-                    color: AppColors.textColor,
-                    fontFamily: 'montserrat',
-                  ),
+                  style: Theme.of(context).textTheme.headlineSmall,
                 ),
                 SizedBox(height: 40.h),
                 Padding(
@@ -107,11 +101,7 @@ class _VerifyViewState extends State<VerifyView> {
                     },
                     child: Text(
                       'Edit the number',
-                      style: TextStyle(
-                        color: AppColors.primaryColor,
-                        fontSize: 12.sp,
-                        fontWeight: FontWeight.w600,
-                      ),
+                      style: Theme.of(context).textTheme.bodySmall,
                     ),
                   ),
                 ),
@@ -126,7 +116,9 @@ class _VerifyViewState extends State<VerifyView> {
                         children: [
                           TextSpan(
                             text: 'Resend',
-                            style: TextStyle(color: AppColors.primaryColor),
+                            style: TextStyle(
+                              color: Theme.of(context).colorScheme.secondary,
+                            ),
                             recognizer: TapGestureRecognizer()..onTap = () {},
                           ),
                         ],

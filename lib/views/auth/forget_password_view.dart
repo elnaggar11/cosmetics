@@ -1,11 +1,10 @@
-import 'package:cosmetics/core/constants/app_colors.dart';
-import 'package:cosmetics/core/helper/navigate.dart';
+import 'package:cosmetics/core/logic/helper_methods.dart';
 import 'package:cosmetics/core/ui/app_button.dart';
 
 import 'package:cosmetics/core/ui/app_image.dart';
+import 'package:cosmetics/core/ui/app_input.dart';
 import 'package:cosmetics/core/ui/arrow_back_widget.dart';
 import 'package:cosmetics/views/auth/verify_view.dart';
-import 'package:cosmetics/views/auth/widgets/phone_input.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -42,23 +41,22 @@ class ForgetPasswordView extends StatelessWidget {
                 SizedBox(height: 40.h),
                 Text(
                   'Forget Password',
-                  style: TextStyle(
-                    fontSize: 24.sp,
-                    color: AppColors.textColor,
-                    fontWeight: FontWeight.bold,
+                  style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                    color: Theme.of(context).primaryColor,
                   ),
                 ),
                 SizedBox(height: 40.h),
                 Text(
                   'Please enter your phone number below \n       to recovery your password.',
-                  style: TextStyle(
-                    color: Color(0xFF8E8EA9),
-                    fontWeight: FontWeight.w400,
-                    fontSize: 14.sp,
-                  ),
+                  style: Theme.of(context).textTheme.labelSmall,
                 ),
                 SizedBox(height: 45.h),
-                PhoneInput(),
+                Row(
+                  children: [
+                    AppInput(withCountryCode: true),
+                    Expanded(child: AppInput(hintText: 'Phone Number')),
+                  ],
+                ),
                 SizedBox(height: 56.h),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 61.r),

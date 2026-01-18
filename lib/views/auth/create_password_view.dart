@@ -1,20 +1,13 @@
-import 'package:cosmetics/core/constants/app_colors.dart';
 import 'package:cosmetics/core/ui/app_button.dart';
 import 'package:cosmetics/core/ui/app_image.dart';
-import 'package:cosmetics/core/ui/custom_text_field.dart';
+import 'package:cosmetics/core/ui/app_input.dart';
 import 'package:cosmetics/core/ui/success_massage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CreatePasswordView extends StatefulWidget {
+class CreatePasswordView extends StatelessWidget {
   const CreatePasswordView({super.key});
 
-  @override
-  State<CreatePasswordView> createState() => _CreatePasswordViewState();
-}
-
-class _CreatePasswordViewState extends State<CreatePasswordView> {
-  bool _isPasswordVisible = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,61 +23,19 @@ class _CreatePasswordViewState extends State<CreatePasswordView> {
                 SizedBox(height: 40.h),
                 Text(
                   'Create Password',
-                  style: TextStyle(
-                    fontSize: 24.sp,
-                    color: AppColors.textColor,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: 'montserrat',
+                  style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                    color: Theme.of(context).primaryColor,
                   ),
                 ),
                 SizedBox(height: 40.h),
                 Text(
                   'Please enter your phone number below \n       to recovery your password.',
-                  style: TextStyle(
-                    color: Color(0xFF8E8EA9),
-                    fontWeight: FontWeight.w400,
-                    fontSize: 14.sp,
-                    fontFamily: 'montserrat',
-                  ),
+                  style: Theme.of(context).textTheme.labelSmall,
                 ),
                 SizedBox(height: 45.h),
-                CustomTextField(
-                  hintText: 'New Password',
-                  obscureText: _isPasswordVisible,
-                  suffixIcon: SizedBox(
-                    height: 24.h,
-                    width: 24.w,
-                    child: Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: AppImage(
-                        image: 'password_view.json',
-                        onLottieClicked: () {
-                          _isPasswordVisible = !_isPasswordVisible;
-                          setState(() {});
-                        },
-                      ),
-                    ),
-                  ),
-                ),
+                AppInput(hintText: 'New Password', isPassword: true),
                 SizedBox(height: 16.h),
-                CustomTextField(
-                  hintText: 'Confirm Password',
-                  obscureText: _isPasswordVisible,
-                  suffixIcon: SizedBox(
-                    height: 24.h,
-                    width: 24.w,
-                    child: Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: AppImage(
-                        image: 'password_view.json',
-                        onLottieClicked: () {
-                          _isPasswordVisible = !_isPasswordVisible;
-                          setState(() {});
-                        },
-                      ),
-                    ),
-                  ),
-                ),
+                AppInput(hintText: 'Confirm Password', isPassword: true),
                 SizedBox(height: 70.h),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 30.h),
