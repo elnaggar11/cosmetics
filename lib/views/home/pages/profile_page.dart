@@ -48,11 +48,9 @@ class _ProfilePageState extends State<ProfilePage> {
           SizedBox(height: 10.h),
           Text(
             'sara',
-            style: TextStyle(
+            style: Theme.of(context).textTheme.bodyMedium!.copyWith(
               color: Color(0xff434C6D),
-              fontFamily: 'montserrat',
-              fontWeight: FontWeight.w600,
-              fontSize: 16.r,
+              fontVariations: [FontVariation('wght', 600)],
             ),
           ),
           SizedBox(height: 40.h),
@@ -102,11 +100,9 @@ class _Item extends StatelessWidget {
         SizedBox(width: 4.w),
         Text(
           title,
-          style: TextStyle(
+          style: Theme.of(context).textTheme.bodySmall!.copyWith(
             color: color,
-            fontFamily: 'montserrat',
-            fontWeight: FontWeight.w600,
-            fontSize: 14.r,
+            fontVariations: [FontVariation('wght', 600)],
           ),
         ),
         Spacer(),
