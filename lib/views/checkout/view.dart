@@ -72,7 +72,7 @@ class CheckOutView extends StatelessWidget {
                     _Item(
                       leadingImage: 'meza.svg',
                       trailingImage: 'down_arrow.svg',
-                      title: '************0235',
+                      title: '**** **** **** 0235',
                       isDropDown: true,
                     ),
 
@@ -148,7 +148,12 @@ class _Item extends StatelessWidget {
       ),
       child: ListTile(
         leading: AppImage(image: leadingImage),
-        title: Text(title),
+        title: Text(
+          title,
+          style: Theme.of(context).textTheme.bodySmall!.copyWith(
+            fontVariations: [FontVariation('wght', 600)],
+          ),
+        ),
         subtitle: subTitle.isEmpty ? null : Text(subTitle),
         trailing: !isDropDown
             ? SizedBox(

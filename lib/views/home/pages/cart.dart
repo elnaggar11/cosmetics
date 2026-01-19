@@ -91,21 +91,21 @@ class _Item extends StatelessWidget {
                   children: [
                     TextSpan(
                       text: 'Note Cosmetics\n',
-                      style: Theme.of(context).textTheme.labelSmall!.copyWith(
+                      style: Theme.of(context).textTheme.bodySmall!.copyWith(
                         color: Color(0xff3B4569),
                         fontVariations: [FontVariation('wght', 700)],
                       ),
                     ),
                     TextSpan(
                       text: 'Ultra rich mascara for lashes\n \n',
-                      style: Theme.of(context).textTheme.labelSmall!.copyWith(
+                      style: Theme.of(context).textTheme.bodySmall!.copyWith(
                         color: Color(0xff3B4569).withAlpha(75),
                         fontVariations: [FontVariation('wght', 500)],
                       ),
                     ),
                     TextSpan(
                       text: '350 EGP',
-                      style: Theme.of(context).textTheme.labelSmall!.copyWith(
+                      style: Theme.of(context).textTheme.bodySmall!.copyWith(
                         color: Color(0xff3B4569),
                         fontVariations: [FontVariation('wght', 700)],
                       ),
@@ -146,8 +146,8 @@ class _CounterState extends State<Counter> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 42.h,
-      width: 142.w,
+      height: 40.h,
+      width: 120.w,
       decoration: BoxDecoration(
         border: Border.all(color: Colors.grey),
         borderRadius: BorderRadius.circular(10.r),

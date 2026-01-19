@@ -1,8 +1,8 @@
 import 'package:cosmetics/core/ui/app_image.dart';
-import 'package:cosmetics/views/home/pages/cart_page.dart';
-import 'package:cosmetics/views/home/pages/categories_page.dart';
-import 'package:cosmetics/views/home/pages/home_page.dart';
-import 'package:cosmetics/views/home/pages/profile_page.dart';
+import 'package:cosmetics/views/home/pages/cart.dart';
+import 'package:cosmetics/views/home/pages/categories.dart';
+import 'package:cosmetics/views/home/pages/home.dart';
+import 'package:cosmetics/views/home/pages/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
