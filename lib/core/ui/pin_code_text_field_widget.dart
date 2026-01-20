@@ -14,7 +14,7 @@ class PinCodeTextFieldWidget extends StatelessWidget {
       autoDismissKeyboard: true,
       animationType: AnimationType.slide,
       keyboardType: TextInputType.number,
-
+      backgroundColor: Colors.transparent,
       cursorColor: Colors.grey,
       pinTheme: PinTheme(
         shape: PinCodeFieldShape.box,

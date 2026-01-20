@@ -68,30 +68,28 @@ class LoginView extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 80.h),
-                Text.rich(
-                  TextSpan(
-                    text: "Don't have an account? ",
-                    style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                      color: Theme.of(context).primaryColor,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Don't have an account? ",
+                      style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                        color: Theme.of(context).primaryColor,
+                      ),
                     ),
-                    children: [
-                      WidgetSpan(
-                        child: TextButton(
-                          onPressed: () {
-                            navigateTo(RegisterView());
-                          },
-                          child: Text(
-                            'Register',
-                            style: Theme.of(context).textTheme.bodySmall!
-                                .copyWith(
-                                  color: Theme.of(context).primaryColor,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                          ),
+                    TextButton(
+                      onPressed: () {
+                        navigateTo(RegisterView());
+                      },
+                      child: Text(
+                        'Register',
+                        style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                          color: Theme.of(context).colorScheme.secondary,
+                          fontWeight: FontWeight.w600,
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ],
             ),

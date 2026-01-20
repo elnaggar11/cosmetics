@@ -51,12 +51,7 @@ class ForgetPasswordView extends StatelessWidget {
                   style: Theme.of(context).textTheme.labelSmall,
                 ),
                 SizedBox(height: 45.h),
-                Row(
-                  children: [
-                    AppInput(withCountryCode: true),
-                    Expanded(child: AppInput(hintText: 'Phone Number')),
-                  ],
-                ),
+                AppInput(withCountryCode: true, hintText: 'Phone Number'),
                 SizedBox(height: 56.h),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 61.r),

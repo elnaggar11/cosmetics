@@ -76,7 +76,7 @@ class _VerifyViewState extends State<VerifyView> {
                 const PinCodeTextFieldWidget(),
                 SizedBox(height: 43.h),
                 AppResendOtp(),
-                SizedBox(height: 113.h),
+                SizedBox(height: 50.h),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 28.r),
                   child: AppButton(
