@@ -3,7 +3,6 @@ import 'package:cosmetics/core/ui/app_button.dart';
 
 import 'package:cosmetics/core/ui/app_input.dart';
 import 'package:cosmetics/views/auth/verify_view.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -71,15 +70,19 @@ class _RegisterViewState extends State<RegisterView> {
                       context,
                     ).textTheme.bodySmall!.copyWith(color: Color(0xff434C6D)),
                     children: [
-                      TextSpan(
-                        text: 'Login',
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = () {
+                      WidgetSpan(
+                        child: TextButton(
+                          onPressed: () {
                             Navigator.pop(context);
                           },
-                        style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                          color: Color(0xff434C6D),
-                          fontWeight: FontWeight.w600,
+                          child: Text(
+                            'Login',
+                            style: Theme.of(context).textTheme.bodySmall!
+                                .copyWith(
+                                  color: Color(0xff434C6D),
+                                  fontWeight: FontWeight.w600,
+                                ),
+                          ),
                         ),
                       ),
                     ],

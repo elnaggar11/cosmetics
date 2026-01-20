@@ -1,12 +1,10 @@
-import 'dart:async';
-
 import 'package:cosmetics/core/logic/helper_methods.dart';
 import 'package:cosmetics/core/ui/app_button.dart';
+import 'package:cosmetics/core/ui/app_resend_otp.dart';
 
 import 'package:cosmetics/core/ui/pin_code_text_field_widget.dart';
 import 'package:cosmetics/core/ui/success_massage.dart';
 import 'package:cosmetics/views/auth/create_password_view.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -19,37 +17,6 @@ class VerifyView extends StatefulWidget {
 }
 
 class _VerifyViewState extends State<VerifyView> {
-  int secondsLeft = 60;
-  Timer? _timer;
-
-  void timer() {
-    _timer?.cancel();
-    setState(() {
-      secondsLeft = 60;
-    });
-    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
-      if (secondsLeft == 0) {
-        timer.cancel();
-      } else {
-        setState(() {
-          secondsLeft--;
-        });
-      }
-    });
-  }
-
-  @override
-  void initState() {
-    timer();
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    _timer?.cancel();
-    super.dispose();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -108,26 +75,7 @@ class _VerifyViewState extends State<VerifyView> {
                 SizedBox(height: 20.h),
                 const PinCodeTextFieldWidget(),
                 SizedBox(height: 43.h),
-                Row(
-                  children: [
-                    Text.rich(
-                      TextSpan(
-                        text: 'Didn’t receive a code? ',
-                        children: [
-                          TextSpan(
-                            text: 'Resend',
-                            style: TextStyle(
-                              color: Theme.of(context).colorScheme.secondary,
-                            ),
-                            recognizer: TapGestureRecognizer()..onTap = () {},
-                          ),
-                        ],
-                      ),
-                    ),
-                    Spacer(),
-                    Text('00.30'),
-                  ],
-                ),
+                AppResendOtp(),
                 SizedBox(height: 113.h),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 28.r),

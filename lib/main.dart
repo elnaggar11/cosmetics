@@ -1,6 +1,5 @@
 import 'package:cosmetics/core/logic/helper_methods.dart';
 import 'package:cosmetics/core/logic/theme.dart';
-import 'package:cosmetics/views/checkout/view.dart';
 import 'package:cosmetics/views/home/view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

@@ -22,13 +22,7 @@ class _OnboardingViewState extends State<OnboardingView> {
       body: SafeArea(
         child: Column(
           children: [
-            if (currentIndex != 2)
-              GestureDetector(
-                onTap: () {
-                  navigateTo(const LoginView(), canPop: false);
-                },
-                child: _skipButton(),
-              ),
+            if (currentIndex != 2) _skipButton(),
 
             SizedBox(height: 80.h),
 
@@ -92,12 +86,9 @@ class _OnboardingViewState extends State<OnboardingView> {
   }
 
   Widget _skipButton() {
-    return Padding(
-      padding: const EdgeInsets.only(right: 20, top: 10),
-      child: Align(
-        alignment: AlignmentGeometry.topRight,
-        child: Text('skip', style: Theme.of(context).textTheme.bodyMedium),
-      ),
+    return TextButton(
+      onPressed: () {},
+      child: Text('skip', style: Theme.of(context).textTheme.bodyMedium),
     );
   }
 

@@ -5,7 +5,6 @@ import 'package:cosmetics/core/ui/app_input.dart';
 import 'package:cosmetics/views/auth/forget_password_view.dart';
 import 'package:cosmetics/views/auth/register_view.dart';
 import 'package:cosmetics/views/home/view.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -76,15 +75,19 @@ class LoginView extends StatelessWidget {
                       color: Theme.of(context).primaryColor,
                     ),
                     children: [
-                      TextSpan(
-                        text: 'Register',
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = () {
+                      WidgetSpan(
+                        child: TextButton(
+                          onPressed: () {
                             navigateTo(RegisterView());
                           },
-                        style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                          color: Theme.of(context).primaryColor,
-                          fontWeight: FontWeight.w600,
+                          child: Text(
+                            'Register',
+                            style: Theme.of(context).textTheme.bodySmall!
+                                .copyWith(
+                                  color: Theme.of(context).primaryColor,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                          ),
                         ),
                       ),
                     ],
