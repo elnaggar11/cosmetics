@@ -1,5 +1,7 @@
+import 'package:cosmetics/core/logic/cache_helper.dart';
 import 'package:cosmetics/core/logic/helper_methods.dart';
 import 'package:cosmetics/core/ui/app_image.dart';
+import 'package:cosmetics/views/auth/login_view.dart';
 
 import 'package:cosmetics/views/onboarding.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +18,11 @@ class _SplashViewState extends State<SplashView> {
   @override
   void initState() {
     super.initState();
-    navigateTo(const OnboardingView(), delayInSeconds: 2, canPop: false);
+    navigateTo(
+      CacheHelper.isFirstTime ? OnboardingView() : LoginView(),
+      delayInSeconds: 2,
+      canPop: false,
+    );
   }
 
   @override

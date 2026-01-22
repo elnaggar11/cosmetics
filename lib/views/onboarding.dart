@@ -1,3 +1,4 @@
+import 'package:cosmetics/core/logic/cache_helper.dart';
 import 'package:cosmetics/core/logic/helper_methods.dart';
 import 'package:cosmetics/core/ui/app_button.dart';
 
@@ -14,6 +15,11 @@ class OnboardingView extends StatefulWidget {
 }
 
 class _OnboardingViewState extends State<OnboardingView> {
+  void goTo() {
+    CacheHelper.setIsNotFirstTime();
+    navigateTo(const LoginView(), canPop: false);
+  }
+
   PageController controller = PageController();
   int currentIndex = 0;
   @override
@@ -22,9 +28,22 @@ class _OnboardingViewState extends State<OnboardingView> {
       body: SafeArea(
         child: Column(
           children: [
-            if (currentIndex != 2) _skipButton(),
+            if (currentIndex != 2)
+              Align(
+                alignment: AlignmentGeometry.topRight,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      'skip',
+                      style: Theme.of(context).textTheme.bodyMedium,
+                    ),
+                  ),
+                ),
+              ),
 
-            SizedBox(height: 80.h),
+            SizedBox(height: 50.h),
 
             Expanded(
               child: PageView(
@@ -70,10 +89,10 @@ class _OnboardingViewState extends State<OnboardingView> {
                   : Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: AppButton(
-                        color: Theme.of(context).colorScheme.secondary,
+                        color: Theme.of(context).colorScheme.primary,
                         text: 'Get Started',
                         onTap: () {
-                          navigateTo(const LoginView(), canPop: false);
+                          goTo();
                         },
                       ),
                     ),
@@ -82,13 +101,6 @@ class _OnboardingViewState extends State<OnboardingView> {
           ],
         ),
       ),
-    );
-  }
-
-  Widget _skipButton() {
-    return TextButton(
-      onPressed: () {},
-      child: Text('skip', style: Theme.of(context).textTheme.bodyMedium),
     );
   }
 

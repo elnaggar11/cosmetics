@@ -38,7 +38,11 @@ class LoginView extends StatelessWidget {
                 SizedBox(height: 25.h),
                 AppInput(withCountryCode: true, hintText: 'Phone Number'),
                 SizedBox(height: 7.h),
-                AppInput(isPassword: true, hintText: 'Your password'),
+                AppInput(
+                  isPassword: true,
+                  hintText: 'Your password',
+                  textInputAction: TextInputAction.done,
+                ),
 
                 SizedBox(height: 12.h),
                 GestureDetector(
