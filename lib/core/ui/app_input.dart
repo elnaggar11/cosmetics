@@ -1,3 +1,5 @@
+import 'package:cosmetics/core/ui/app_country_code.dart';
+import 'package:cosmetics/core/ui/app_gender_selection.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'app_image.dart';
@@ -26,17 +28,7 @@ class AppInput extends StatefulWidget {
 }
 
 class _AppInputState extends State<AppInput> {
-  late int currentCuntryIndex;
-  int currentGenderIndex = 0;
-
-  final list = [10, 20, 30, 40];
-  final genderList = ['Male', 'Female'];
   bool isHidden = true;
-  @override
-  void initState() {
-    currentCuntryIndex = list.first;
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,52 +36,10 @@ class _AppInputState extends State<AppInput> {
       onTap: () => FocusScope.of(context).unfocus(),
       child: Row(
         children: [
-          if (widget.withCountryCode)
-            SizedBox(
-              width: 90.w,
-              child: Padding(
-                padding: EdgeInsetsDirectional.only(end: 6.r),
-                child: DropdownButtonFormField<int>(
-                  borderRadius: BorderRadius.circular(8.r),
-                  decoration: const InputDecoration(
-                    border: InputBorder.none,
-                    enabledBorder: InputBorder.none,
-                    focusedBorder: InputBorder.none,
-                  ),
-                  isExpanded: true,
-                  padding: EdgeInsets.symmetric(vertical: 6.r),
-                  dropdownColor: const Color(0xffD9D9D9),
-                  initialValue: currentCuntryIndex,
-
-                  icon: AppImage(
-                    image: 'down.svg',
-                    color: Theme.of(context).primaryColor,
-                  ),
-                  items: list
-                      .map(
-                        (e) => DropdownMenuItem<int>(
-                          value: e,
-                          child: Text(
-                            '+$e',
-                            style: Theme.of(context).textTheme.bodySmall!
-                                .copyWith(
-                                  color: Theme.of(context).primaryColor,
-                                  fontWeight: FontWeight.w900,
-                                ),
-                          ),
-                        ),
-                      )
-                      .toList(),
-                  onChanged: (value) {
-                    setState(() {
-                      currentCuntryIndex = value!;
-                    });
-                  },
-                ),
-              ),
-            ),
-          widget.isGenderSelection == false
-              ? Expanded(
+          if (widget.withCountryCode) AppCountryCode(),
+          widget.isGenderSelection
+              ? AppGenderSelection()
+              : Expanded(
                   child: TextFormField(
                     keyboardType: widget.keyboardType,
                     textInputAction: widget.textInputAction,
@@ -113,7 +63,6 @@ class _AppInputState extends State<AppInput> {
                                 image: 'password_view.json',
                                 height: 24.h,
                                 width: 24.w,
-
                                 onLottieClicked: () {
                                   setState(() {
                                     isHidden = !isHidden;
@@ -127,47 +76,6 @@ class _AppInputState extends State<AppInput> {
                               boxFit: BoxFit.scaleDown,
                             )
                           : null,
-                    ),
-                  ),
-                )
-              : Expanded(
-                  child: Container(
-                    height: 60,
-                    decoration: BoxDecoration(
-                      color: Color(0xffEAEDEC),
-                      borderRadius: BorderRadius.circular(8.r),
-                      border: Border.all(
-                        color: Theme.of(
-                          context,
-                        ).inputDecorationTheme.enabledBorder!.borderSide.color,
-                      ),
-                    ),
-                    child: DropdownButtonHideUnderline(
-                      child: DropdownButton<int>(
-                        isExpanded: true,
-                        value: currentGenderIndex,
-                        items: List.generate(
-                          genderList.length,
-                          (index) => DropdownMenuItem<int>(
-                            value: index,
-                            child: Padding(
-                              padding: EdgeInsets.symmetric(
-                                horizontal: 20.r,
-                                vertical: 12.r,
-                              ),
-                              child: Text(
-                                genderList[index],
-                                style: Theme.of(context).textTheme.bodyMedium,
-                              ),
-                            ),
-                          ),
-                        ),
-                        onChanged: (value) {
-                          setState(() {
-                            currentGenderIndex = value!;
-                          });
-                        },
-                      ),
                     ),
                   ),
                 ),
