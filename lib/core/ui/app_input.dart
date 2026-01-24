@@ -17,11 +17,15 @@ class AppInput extends StatefulWidget {
     this.isGenderSelection = false,
     this.keyboardType = TextInputType.emailAddress,
     this.isInputContent = false,
+    this.controller,
+    this.onCountryCodeChanged,
   });
   final String? suffixIcon, hintText, label;
   final bool withCountryCode, isPassword, isGenderSelection, isInputContent;
   final TextInputAction textInputAction;
   final TextInputType keyboardType;
+  final TextEditingController? controller;
+  final ValueChanged<String>? onCountryCodeChanged;
 
   @override
   State<AppInput> createState() => _AppInputState();
@@ -36,11 +40,13 @@ class _AppInputState extends State<AppInput> {
       onTap: () => FocusScope.of(context).unfocus(),
       child: Row(
         children: [
-          if (widget.withCountryCode) AppCountryCode(),
+          if (widget.withCountryCode)
+            AppCountryCode(onCountryCodeChanged: widget.onCountryCodeChanged),
           widget.isGenderSelection
               ? AppGenderSelection()
               : Expanded(
                   child: TextFormField(
+                    controller: widget.controller,
                     keyboardType: widget.keyboardType,
                     textInputAction: widget.textInputAction,
                     obscureText: isHidden && widget.isPassword,

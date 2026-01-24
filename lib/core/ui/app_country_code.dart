@@ -3,20 +3,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppCountryCode extends StatefulWidget {
-  const AppCountryCode({super.key});
-
+  const AppCountryCode({super.key, this.onCountryCodeChanged});
+  final ValueChanged<String>? onCountryCodeChanged;
   @override
   State<AppCountryCode> createState() => _AppCountryCodeState();
 }
 
 class _AppCountryCodeState extends State<AppCountryCode> {
-  final list = [10, 20, 30, 40];
-  late int currentCuntryIndex;
+  final list = ['10', '20', '30', '40'];
+  late String currentCuntryIndex;
 
   @override
   void initState() {
     super.initState();
     currentCuntryIndex = list.first;
+    widget.onCountryCodeChanged?.call(currentCuntryIndex);
   }
 
   @override
@@ -25,7 +26,7 @@ class _AppCountryCodeState extends State<AppCountryCode> {
       width: 90.w,
       child: Padding(
         padding: EdgeInsetsDirectional.only(end: 6.r),
-        child: DropdownButtonFormField<int>(
+        child: DropdownButtonFormField<String>(
           borderRadius: BorderRadius.circular(8.r),
           decoration: const InputDecoration(
             border: InputBorder.none,
@@ -43,7 +44,7 @@ class _AppCountryCodeState extends State<AppCountryCode> {
           ),
           items: list
               .map(
-                (e) => DropdownMenuItem<int>(
+                (e) => DropdownMenuItem<String>(
                   value: e,
                   child: Text(
                     '+$e',
@@ -58,6 +59,7 @@ class _AppCountryCodeState extends State<AppCountryCode> {
           onChanged: (value) {
             setState(() {
               currentCuntryIndex = value!;
+              widget.onCountryCodeChanged?.call(currentCuntryIndex);
             });
           },
         ),

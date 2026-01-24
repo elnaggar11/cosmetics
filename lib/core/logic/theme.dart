@@ -63,7 +63,7 @@ ThemeData theme() {
       /// help titles font
       bodySmall: TextStyle(
         fontSize: 12.sp,
-        fontVariations: [FontVariation('wght', 400)],
+        fontVariations: [FontVariation('wght', 500)],
         color: Color(0xff434C6D),
       ),
 
