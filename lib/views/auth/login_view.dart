@@ -35,76 +35,75 @@ class _LoginViewState extends State<LoginView> {
         child: Form(
           key: _formKey,
           child: SingleChildScrollView(
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 13.r),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  SizedBox(height: 40.h),
-                  AppImage(image: 'login.png'),
-                  SizedBox(height: 20.h),
-                  Text(
-                    'Login Now',
-                    style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                      color: Theme.of(context).primaryColor,
-                    ),
+            padding: EdgeInsets.symmetric(horizontal: 13.r),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(height: 40.h),
+                AppImage(image: 'login.png'),
+                SizedBox(height: 20.h),
+                Text(
+                  'Login Now',
+                  style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                    color: Theme.of(context).primaryColor,
                   ),
-                  SizedBox(height: 14.h),
-                  Text(
-                    'Please enter the details below to continue',
-                    style: Theme.of(context).textTheme.labelSmall,
-                  ),
-                  SizedBox(height: 25.h),
-                  AppInput(
-                    controller: phoneController,
-                    withCountryCode: true,
-                    label: 'Phone Number',
-                    onCountryCodeChanged: (value) {
-                      selectedCountryCode = value;
-                    },
-                    validator: InputValidator.phoneValidator,
-                  ),
-                  SizedBox(height: 7.h),
-                  AppInput(
-                    label: 'Your password',
-                    controller: passwordController,
-                    isPassword: true,
-                    textInputAction: TextInputAction.done,
-                    validator: InputValidator.passwordValidator,
-                  ),
+                ),
+                SizedBox(height: 14.h),
+                Text(
+                  'Please enter the details below to continue',
+                  style: Theme.of(context).textTheme.labelSmall,
+                ),
+                SizedBox(height: 25.h),
+                AppInput(
+                  controller: phoneController,
+                  withCountryCode: true,
+                  label: 'Phone Number',
+                  onCountryCodeChanged: (value) {
+                    selectedCountryCode = value;
+                  },
+                  validator: InputValidator.phoneValidator,
+                ),
+                SizedBox(height: 7.h),
+                AppInput(
+                  label: 'Your password',
+                  controller: passwordController,
+                  isPassword: true,
+                  textInputAction: TextInputAction.done,
+                  validator: InputValidator.passwordValidator,
+                ),
 
-                  SizedBox(height: 12.h),
-                  GestureDetector(
-                    onTap: () {
+                SizedBox(height: 12.h),
+
+                Align(
+                  alignment: AlignmentGeometry.centerRight,
+                  child: TextButton(
+                    onPressed: () {
                       navigateTo(ForgetPasswordView());
                     },
-                    child: Align(
-                      alignment: Alignment.topRight,
-                      child: Text(
-                        'Forgot Password?',
-                        style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                          color: Theme.of(context).primaryColor,
-                        ),
+                    child: Text(
+                      'Forgot Password?',
+                      style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                        color: Theme.of(context).colorScheme.secondary,
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 40.0,
-                      vertical: 20.0,
-                    ),
-                    child: AppButton(
-                      text: 'Login',
-                      onTap: () {
-                        if (_formKey.currentState!.validate()) {
-                          navigateTo(HomeView(), canPop: false);
-                        }
-                      },
-                    ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 40.0,
+                    vertical: 20.0,
                   ),
-                  SizedBox(height: 50.h),
-                ],
-              ),
+                  child: AppButton(
+                    text: 'Login',
+                    onTap: () {
+                      if (_formKey.currentState!.validate()) {
+                        navigateTo(HomeView(), canPop: false);
+                      }
+                    },
+                  ),
+                ),
+                SizedBox(height: 50.h),
+              ],
             ),
           ),
         ),

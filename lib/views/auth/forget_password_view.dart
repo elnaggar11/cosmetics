@@ -1,4 +1,5 @@
 import 'package:cosmetics/core/logic/helper_methods.dart';
+import 'package:cosmetics/core/logic/input_validator.dart';
 import 'package:cosmetics/core/ui/app_button.dart';
 
 import 'package:cosmetics/core/ui/app_image.dart';
@@ -65,6 +66,7 @@ class _ForgetPasswordViewState extends State<ForgetPasswordView> {
                   AppInput(
                     withCountryCode: true,
                     hintText: 'Phone Number',
+                    validator: InputValidator.phoneValidator,
                     onCountryCodeChanged: (value) {
                       selectedCountryCode = value;
                     },
