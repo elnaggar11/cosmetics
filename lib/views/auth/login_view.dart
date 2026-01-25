@@ -5,7 +5,7 @@ import 'package:cosmetics/core/ui/app_image.dart';
 import 'package:cosmetics/core/ui/app_input.dart';
 import 'package:cosmetics/core/ui/app_login_or_register.dart';
 import 'package:cosmetics/views/auth/forget_password_view.dart';
-import 'package:cosmetics/views/auth/register_view.dart';
+import 'package:cosmetics/views/home/view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -21,6 +21,13 @@ class _LoginViewState extends State<LoginView> {
   String? selectedCountryCode;
   final passwordController = TextEditingController();
   final phoneController = TextEditingController();
+  @override
+  void dispose() {
+    passwordController.dispose();
+    phoneController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -90,10 +97,8 @@ class _LoginViewState extends State<LoginView> {
                       text: 'Login',
                       onTap: () {
                         if (_formKey.currentState!.validate()) {
-                          final phone = phoneController.text.trim();
-                          final password = passwordController.text.trim();
+                          navigateTo(HomeView(), canPop: false);
                         }
-                        // navigateTo(HomeView(), canPop: false);
                       },
                     ),
                   ),

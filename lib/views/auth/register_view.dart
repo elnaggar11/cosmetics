@@ -16,6 +16,7 @@ class RegisterView extends StatefulWidget {
 
 class _RegisterViewState extends State<RegisterView> {
   bool isRegister = true;
+  String? selectedCountryCode;
   final _formKey = GlobalKey<FormState>();
   final phoneController = TextEditingController();
   final nameController = TextEditingController();
@@ -23,10 +24,10 @@ class _RegisterViewState extends State<RegisterView> {
   final confirmPasswordController = TextEditingController();
   @override
   void dispose() {
-    passwordController;
-    phoneController;
-    nameController;
-    confirmPasswordController;
+    passwordController.dispose();
+    phoneController.dispose();
+    nameController.dispose();
+    confirmPasswordController.dispose();
     super.dispose();
   }
 
@@ -61,6 +62,9 @@ class _RegisterViewState extends State<RegisterView> {
                   ),
                   SizedBox(height: 16.h),
                   AppInput(
+                    onCountryCodeChanged: (value) {
+                      selectedCountryCode = value;
+                    },
                     withCountryCode: true,
                     label: 'Phone Number',
                     validator: InputValidator.phoneValidator,
@@ -95,8 +99,9 @@ class _RegisterViewState extends State<RegisterView> {
                     child: AppButton(
                       text: 'Next',
                       onTap: () {
-                        if (_formKey.currentState!.validate()) {}
-                        // navigateTo(VerifyView(isRegister: isRegister));
+                        if (_formKey.currentState!.validate()) {
+                          navigateTo(VerifyView(isRegister: isRegister));
+                        }
                       },
                     ),
                   ),
