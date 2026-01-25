@@ -16,63 +16,97 @@ class RegisterView extends StatefulWidget {
 
 class _RegisterViewState extends State<RegisterView> {
   bool isRegister = true;
+  final _formKey = GlobalKey<FormState>();
+  final phoneController = TextEditingController();
+  final nameController = TextEditingController();
+  final passwordController = TextEditingController();
+  final confirmPasswordController = TextEditingController();
+  @override
+  void dispose() {
+    passwordController;
+    phoneController;
+    nameController;
+    confirmPasswordController;
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 13.r),
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                SizedBox(height: 40.h),
-                Image.asset(
-                  'assets/images/logo_icon.png',
-                  height: 62.h,
-                  width: 67.w,
-                ),
-                SizedBox(height: 40.h),
-                Text(
-                  'Create Account',
-                  style: Theme.of(context).textTheme.headlineSmall,
-                ),
-                SizedBox(height: 50.h),
-                AppInput(
-                  label: 'Your Full Name',
-                  validator: InputValidator.nameValidator,
-                ),
-                SizedBox(height: 16.h),
-                AppInput(withCountryCode: true, label: 'Phone Number'),
-                SizedBox(height: 16.h),
-                AppInput(isPassword: true, label: 'Your password'),
-                SizedBox(height: 12.h),
-                AppInput(
-                  isPassword: true,
-                  label: 'Your Password again',
-                  textInputAction: TextInputAction.done,
-                ),
-                SizedBox(height: 12.h),
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 40.0,
-                    vertical: 20.0,
+        child: Form(
+          key: _formKey,
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 13.r),
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SizedBox(height: 40.h),
+                  Image.asset(
+                    'assets/images/logo_icon.png',
+                    height: 62.h,
+                    width: 67.w,
                   ),
-                  child: AppButton(
-                    text: 'Next',
-                    onTap: () {
-                      navigateTo(VerifyView(isRegister: isRegister));
+                  SizedBox(height: 40.h),
+                  Text(
+                    'Create Account',
+                    style: Theme.of(context).textTheme.headlineSmall,
+                  ),
+                  SizedBox(height: 50.h),
+                  AppInput(
+                    label: 'Your Full Name',
+                    validator: InputValidator.nameValidator,
+                    controller: nameController,
+                  ),
+                  SizedBox(height: 16.h),
+                  AppInput(
+                    withCountryCode: true,
+                    label: 'Phone Number',
+                    validator: InputValidator.phoneValidator,
+                    controller: phoneController,
+                  ),
+                  SizedBox(height: 16.h),
+                  AppInput(
+                    isPassword: true,
+                    label: 'Your password',
+                    validator: InputValidator.passwordValidator,
+                    controller: passwordController,
+                  ),
+                  SizedBox(height: 12.h),
+                  AppInput(
+                    isPassword: true,
+                    label: 'Your Password again',
+                    controller: confirmPasswordController,
+                    textInputAction: TextInputAction.done,
+                    validator: (value) {
+                      return InputValidator.confirmPasswordValidator(
+                        value,
+                        passwordController.text,
+                      );
                     },
                   ),
-                ),
-                SizedBox(height: 50.h),
-                AppLoginOrRegister(isLogin: false),
-              ],
+                  SizedBox(height: 12.h),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 40.0,
+                      vertical: 20.0,
+                    ),
+                    child: AppButton(
+                      text: 'Next',
+                      onTap: () {
+                        if (_formKey.currentState!.validate()) {}
+                        // navigateTo(VerifyView(isRegister: isRegister));
+                      },
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
       ),
+      bottomNavigationBar: AppLoginOrRegister(isLogin: false),
     );
   }
 }

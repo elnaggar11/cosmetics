@@ -13,18 +13,23 @@ class AppLoginOrRegister extends StatelessWidget {
         TextSpan(
           children: [
             TextSpan(
-              text: isLogin ? 'Don’t have an account?' : 'Have an account?',
+              text: isLogin ? 'Have an account?' : 'Don’t have an account?',
               style: Theme.of(context).textTheme.bodySmall!.copyWith(
                 color: Theme.of(context).primaryColor,
               ),
             ),
             WidgetSpan(
+              alignment: PlaceholderAlignment.middle,
               child: TextButton(
                 onPressed: () {
-                  isLogin ? Navigator.pop(context) : navigateTo(RegisterView());
+                  if (isLogin) {
+                    navigateTo(RegisterView());
+                  } else {
+                    Navigator.pop(context);
+                  }
                 },
                 child: Text(
-                  isLogin ? 'Login' : 'Register',
+                  isLogin ? 'Register' : 'Login',
                   style: Theme.of(context).textTheme.bodySmall!.copyWith(
                     color: Theme.of(context).colorScheme.secondary,
                     fontWeight: FontWeight.w600,
@@ -34,6 +39,7 @@ class AppLoginOrRegister extends StatelessWidget {
             ),
           ],
         ),
+        textAlign: TextAlign.center,
       ),
     );
   }

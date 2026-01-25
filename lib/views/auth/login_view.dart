@@ -98,13 +98,13 @@ class _LoginViewState extends State<LoginView> {
                     ),
                   ),
                   SizedBox(height: 50.h),
-                  AppLoginOrRegister(),
                 ],
               ),
             ),
           ),
         ),
       ),
+      bottomNavigationBar: AppLoginOrRegister(),
     );
   }
 }
