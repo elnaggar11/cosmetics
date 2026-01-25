@@ -3,6 +3,7 @@ import 'package:cosmetics/core/logic/input_validator.dart';
 import 'package:cosmetics/core/ui/app_button.dart';
 import 'package:cosmetics/core/ui/app_image.dart';
 import 'package:cosmetics/core/ui/app_input.dart';
+import 'package:cosmetics/core/ui/app_login_or_register.dart';
 import 'package:cosmetics/views/auth/forget_password_view.dart';
 import 'package:cosmetics/views/auth/register_view.dart';
 import 'package:flutter/material.dart';
@@ -50,7 +51,7 @@ class _LoginViewState extends State<LoginView> {
                   AppInput(
                     controller: phoneController,
                     withCountryCode: true,
-                    hintText: 'Phone Number',
+                    label: 'Phone Number',
                     onCountryCodeChanged: (value) {
                       selectedCountryCode = value;
                     },
@@ -58,9 +59,9 @@ class _LoginViewState extends State<LoginView> {
                   ),
                   SizedBox(height: 7.h),
                   AppInput(
+                    label: 'Your password',
                     controller: passwordController,
                     isPassword: true,
-                    hintText: 'Your password',
                     textInputAction: TextInputAction.done,
                     validator: InputValidator.passwordValidator,
                   ),
@@ -97,30 +98,7 @@ class _LoginViewState extends State<LoginView> {
                     ),
                   ),
                   SizedBox(height: 50.h),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "Don't have an account? ",
-                        style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                          color: Theme.of(context).primaryColor,
-                        ),
-                      ),
-                      TextButton(
-                        onPressed: () {
-                          navigateTo(RegisterView());
-                        },
-                        child: Text(
-                          'Register',
-                          style: Theme.of(context).textTheme.bodySmall!
-                              .copyWith(
-                                color: Theme.of(context).colorScheme.secondary,
-                                fontWeight: FontWeight.w600,
-                              ),
-                        ),
-                      ),
-                    ],
-                  ),
+                  AppLoginOrRegister(),
                 ],
               ),
             ),

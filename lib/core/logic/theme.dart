@@ -113,7 +113,7 @@ ThemeData theme() {
     ),
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
-      fillColor: Color(0xffEAEDEC),
+      fillColor: Colors.transparent,
       contentPadding: EdgeInsets.symmetric(horizontal: 18.r, vertical: 12.r),
       suffixIconColor: const Color(0xff8E8EA9),
       hintStyle: TextStyle(
@@ -126,9 +126,11 @@ ThemeData theme() {
         color: Color(0xff434C6D),
         fontVariations: [FontVariation('wght', 400)],
       ),
-      border: outLineInputBorder(color: Color(0xffF0E6DE)),
-      enabledBorder: outLineInputBorder(color: Color(0xffF0E6DE)),
-      focusedBorder: outLineInputBorder(color: Color(0xffF0E6DE)),
+      border: outLineInputBorder(color: Colors.white),
+      enabledBorder: outLineInputBorder(
+        color: Color(0xff669066).withAlpha(120),
+      ),
+      focusedBorder: outLineInputBorder(color: Color(0xffD75D72)),
       errorBorder: outLineInputBorder(color: Colors.red),
       focusedErrorBorder: outLineInputBorder(color: Colors.red),
       errorStyle: const TextStyle(height: .1, fontSize: 12),

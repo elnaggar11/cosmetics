@@ -1,7 +1,9 @@
 import 'package:cosmetics/core/logic/helper_methods.dart';
+import 'package:cosmetics/core/logic/input_validator.dart';
 import 'package:cosmetics/core/ui/app_button.dart';
 
 import 'package:cosmetics/core/ui/app_input.dart';
+import 'package:cosmetics/core/ui/app_login_or_register.dart';
 import 'package:cosmetics/views/auth/verify_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -37,18 +39,20 @@ class _RegisterViewState extends State<RegisterView> {
                   style: Theme.of(context).textTheme.headlineSmall,
                 ),
                 SizedBox(height: 50.h),
-                AppInput(hintText: 'Your Full Name'),
-                SizedBox(height: 16.h),
-                Row(
-                  children: [
-                    AppInput(withCountryCode: true),
-                    Expanded(child: AppInput(hintText: 'Phone Number')),
-                  ],
+                AppInput(
+                  label: 'Your Full Name',
+                  validator: InputValidator.nameValidator,
                 ),
                 SizedBox(height: 16.h),
-                AppInput(isPassword: true),
+                AppInput(withCountryCode: true, label: 'Phone Number'),
+                SizedBox(height: 16.h),
+                AppInput(isPassword: true, label: 'Your password'),
                 SizedBox(height: 12.h),
-                AppInput(isPassword: true, hintText: 'Your Password again'),
+                AppInput(
+                  isPassword: true,
+                  label: 'Your Password again',
+                  textInputAction: TextInputAction.done,
+                ),
                 SizedBox(height: 12.h),
                 Padding(
                   padding: const EdgeInsets.symmetric(
@@ -62,32 +66,8 @@ class _RegisterViewState extends State<RegisterView> {
                     },
                   ),
                 ),
-                SizedBox(height: 80.h),
-                Text.rich(
-                  TextSpan(
-                    text: "Have an account? ",
-                    style: Theme.of(
-                      context,
-                    ).textTheme.bodySmall!.copyWith(color: Color(0xff434C6D)),
-                    children: [
-                      WidgetSpan(
-                        child: TextButton(
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                          child: Text(
-                            'Login',
-                            style: Theme.of(context).textTheme.bodySmall!
-                                .copyWith(
-                                  color: Color(0xff434C6D),
-                                  fontWeight: FontWeight.w600,
-                                ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                SizedBox(height: 50.h),
+                AppLoginOrRegister(isLogin: false),
               ],
             ),
           ),

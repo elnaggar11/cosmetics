@@ -28,10 +28,14 @@ class _AppCountryCodeState extends State<AppCountryCode> {
         padding: EdgeInsetsDirectional.only(end: 6.r),
         child: DropdownButtonFormField<String>(
           borderRadius: BorderRadius.circular(8.r),
-          decoration: const InputDecoration(
-            border: InputBorder.none,
-            enabledBorder: InputBorder.none,
-            focusedBorder: InputBorder.none,
+          decoration: InputDecoration(
+            border: outLineInputBorder(color: Colors.white),
+            enabledBorder: outLineInputBorder(
+              color: Color(0xff669066).withAlpha(120),
+            ),
+            focusedBorder: outLineInputBorder(color: Color(0xffD75D72)),
+            errorBorder: outLineInputBorder(color: Colors.red),
+            focusedErrorBorder: outLineInputBorder(color: Colors.red),
           ),
           isExpanded: true,
           padding: EdgeInsets.symmetric(vertical: 6.r),
@@ -66,4 +70,14 @@ class _AppCountryCodeState extends State<AppCountryCode> {
       ),
     );
   }
+}
+
+OutlineInputBorder outLineInputBorder({
+  required Color color,
+  double borderRadius = 8,
+}) {
+  return OutlineInputBorder(
+    borderRadius: BorderRadius.circular(borderRadius),
+    borderSide: BorderSide(color: color),
+  );
 }
