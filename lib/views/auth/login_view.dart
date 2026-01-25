@@ -1,4 +1,5 @@
 import 'package:cosmetics/core/logic/helper_methods.dart';
+import 'package:cosmetics/core/logic/input_validator.dart';
 import 'package:cosmetics/core/ui/app_button.dart';
 import 'package:cosmetics/core/ui/app_image.dart';
 import 'package:cosmetics/core/ui/app_input.dart';
@@ -53,6 +54,7 @@ class _LoginViewState extends State<LoginView> {
                     onCountryCodeChanged: (value) {
                       selectedCountryCode = value;
                     },
+                    validator: InputValidator.phoneValidator,
                   ),
                   SizedBox(height: 7.h),
                   AppInput(
@@ -60,6 +62,7 @@ class _LoginViewState extends State<LoginView> {
                     isPassword: true,
                     hintText: 'Your password',
                     textInputAction: TextInputAction.done,
+                    validator: InputValidator.passwordValidator,
                   ),
 
                   SizedBox(height: 12.h),

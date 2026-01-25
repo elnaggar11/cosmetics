@@ -19,6 +19,7 @@ class AppInput extends StatefulWidget {
     this.isInputContent = false,
     this.controller,
     this.onCountryCodeChanged,
+    this.validator,
   });
   final String? suffixIcon, hintText, label;
   final bool withCountryCode, isPassword, isGenderSelection, isInputContent;
@@ -26,7 +27,7 @@ class AppInput extends StatefulWidget {
   final TextInputType keyboardType;
   final TextEditingController? controller;
   final ValueChanged<String>? onCountryCodeChanged;
-
+  final String? Function(String?)? validator;
   @override
   State<AppInput> createState() => _AppInputState();
 }
@@ -39,6 +40,7 @@ class _AppInputState extends State<AppInput> {
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           if (widget.withCountryCode)
             AppCountryCode(onCountryCodeChanged: widget.onCountryCodeChanged),
@@ -46,6 +48,7 @@ class _AppInputState extends State<AppInput> {
               ? AppGenderSelection()
               : Expanded(
                   child: TextFormField(
+                    validator: widget.validator,
                     controller: widget.controller,
                     keyboardType: widget.keyboardType,
                     textInputAction: widget.textInputAction,

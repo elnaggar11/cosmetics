@@ -1,5 +1,5 @@
 class InputValidator {
-  //  Password
+  ///  Password
   static String? passwordValidator(String? value) {
     if (value == null || value.trim().isEmpty) {
       return 'Password must not be empty';
@@ -12,13 +12,13 @@ class InputValidator {
     } else if (!RegExp(r'[0-9]').hasMatch(value)) {
       return 'Password must contain at least one number';
     } else if (!RegExp(r'[!@#$%^&*(),.?":{}|<>]').hasMatch(value)) {
-      return 'Password must contain at least one special character';
+      return 'Password must have at least one special character';
     }
 
     return null;
   }
 
-  //  Phone
+  ///  Phone
   static String? phoneValidator(String? value) {
     if (value == null || value.trim().isEmpty) {
       return 'Phone number must not be empty';
@@ -33,7 +33,7 @@ class InputValidator {
     return null;
   }
 
-  // Email
+  /// Email
   static String? emailValidator(String? value) {
     if (value == null || value.trim().isEmpty) {
       return 'Email must not be empty';
@@ -44,7 +44,7 @@ class InputValidator {
     return null;
   }
 
-  //  Confirm Password
+  /// Confirm Password
   static String? confirmPasswordValidator(
     String? value,
     String currentPassword,
@@ -58,7 +58,7 @@ class InputValidator {
     return null;
   }
 
-  //  Name
+  ///  Name
   static String? nameValidator(String? value) {
     if (value == null || value.trim().isEmpty) {
       return 'Name must not be empty';
