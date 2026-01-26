@@ -18,7 +18,7 @@ class ForgetPasswordView extends StatefulWidget {
 
 class _ForgetPasswordViewState extends State<ForgetPasswordView> {
   final _formKey = GlobalKey<FormState>();
-  final phonecontroller = TextEditingController();
+  final phoneController = TextEditingController();
   String? selectedCountryCode;
 
   @override
@@ -70,7 +70,7 @@ class _ForgetPasswordViewState extends State<ForgetPasswordView> {
                     onCountryCodeChanged: (value) {
                       selectedCountryCode = value;
                     },
-                    controller: phonecontroller,
+                    controller: phoneController,
                   ),
                   SizedBox(height: 56.h),
                   Padding(

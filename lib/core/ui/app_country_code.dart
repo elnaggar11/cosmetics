@@ -11,13 +11,13 @@ class AppCountryCode extends StatefulWidget {
 
 class _AppCountryCodeState extends State<AppCountryCode> {
   final list = ['10', '20', '30', '40'];
-  late String currentCuntryIndex;
+  late String currentCountryIndex;
 
   @override
   void initState() {
     super.initState();
-    currentCuntryIndex = list.first;
-    widget.onCountryCodeChanged?.call(currentCuntryIndex);
+    currentCountryIndex = list.first;
+    widget.onCountryCodeChanged?.call(currentCountryIndex);
   }
 
   @override
@@ -40,7 +40,7 @@ class _AppCountryCodeState extends State<AppCountryCode> {
           isExpanded: true,
           padding: EdgeInsets.symmetric(vertical: 6.r),
           dropdownColor: const Color(0xffD9D9D9),
-          initialValue: currentCuntryIndex,
+          initialValue: currentCountryIndex,
 
           icon: AppImage(
             image: 'down.svg',
@@ -62,8 +62,8 @@ class _AppCountryCodeState extends State<AppCountryCode> {
               .toList(),
           onChanged: (value) {
             setState(() {
-              currentCuntryIndex = value!;
-              widget.onCountryCodeChanged?.call(currentCuntryIndex);
+              currentCountryIndex = value!;
+              widget.onCountryCodeChanged?.call(currentCountryIndex);
             });
           },
         ),

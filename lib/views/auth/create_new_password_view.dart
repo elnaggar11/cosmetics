@@ -17,7 +17,6 @@ class _CreateNewPasswordViewState extends State<CreateNewPasswordView> {
   final _formKey = GlobalKey<FormState>();
   final newPasswordController = TextEditingController();
   final confirmPasswordController = TextEditingController();
-
   @override
   void dispose() {
     newPasswordController.dispose();

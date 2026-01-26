@@ -80,7 +80,7 @@ class _Item extends StatelessWidget {
               ClipRRect(
                 borderRadius: BorderRadius.circular(10.r),
                 child: AppImage(
-                  image: 'mascra.png',
+                  image: 'mascara.png',
                   height: 102.h,
                   width: 102.h,
                 ),

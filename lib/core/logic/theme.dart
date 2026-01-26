@@ -53,7 +53,7 @@ ThemeData theme() {
         color: Color(0xff284243),
       ),
 
-      /// most useage font in app
+      /// most usage font in app
       bodyMedium: TextStyle(
         fontSize: 16.sp,
         fontVariations: [FontVariation('wght', 500)],
@@ -74,7 +74,7 @@ ThemeData theme() {
         color: Colors.black,
       ),
 
-      /// lable up the button
+      /// label up the button
       labelMedium: TextStyle(),
 
       /// the most small font style

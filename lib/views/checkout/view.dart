@@ -57,7 +57,7 @@ class CheckOutView extends StatelessWidget {
                       leadingImage: 'map.png',
                       trailingImage: 'down_arrow.svg',
                       title: 'Home',
-                      subTitle: 'Mansoura, 14 Porsaid St',
+                      subTitle: 'Mansoura, 14 Portsaid St',
                       isDropDown: true,
                     ),
                     SizedBox(height: 25.h),
@@ -80,7 +80,7 @@ class CheckOutView extends StatelessWidget {
                     _Item(
                       leadingImage: 'discount.svg',
                       trailingImage: 'down_arrow.svg',
-                      title: 'Add vaucher',
+                      title: 'Add voucher',
                       isDropDown: false,
                     ),
                     Text(
