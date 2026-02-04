@@ -1,3 +1,4 @@
+import 'package:cosmetics/core/logic/dio_helper.dart';
 import 'package:cosmetics/core/logic/helper_methods.dart';
 import 'package:cosmetics/core/logic/input_validator.dart';
 import 'package:cosmetics/core/ui/app_button.dart';
@@ -20,6 +21,7 @@ class _RegisterViewState extends State<RegisterView> {
   final _formKey = GlobalKey<FormState>();
   final phoneController = TextEditingController();
   final nameController = TextEditingController();
+  final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final confirmPasswordController = TextEditingController();
   @override
@@ -29,6 +31,19 @@ class _RegisterViewState extends State<RegisterView> {
     nameController.dispose();
     confirmPasswordController.dispose();
     super.dispose();
+  }
+
+  Future<void> getData() async {
+    final response = await DioHelper.postData(
+      endpoint: 'api/Auth/register',
+      data: {
+        "username": nameController,
+        "countryCode": selectedCountryCode,
+        "phoneNumber": phoneController,
+        "email": emailController,
+        "password": passwordController,
+      },
+    );
   }
 
   @override

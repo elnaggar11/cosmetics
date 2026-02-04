@@ -1,5 +1,8 @@
+import 'package:cosmetics/core/logic/dio_helper.dart';
+import 'package:cosmetics/core/ui/app_country_code.dart';
 import 'package:cosmetics/core/ui/app_image.dart';
 import 'package:cosmetics/core/ui/search.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -11,13 +14,32 @@ class CategoriesPage extends StatefulWidget {
 }
 
 class _CategoriesPageState extends State<CategoriesPage> {
-  final List _list = [
-    _Model(imageName: 'bundles.png', title: 'Bundles'),
-    _Model(imageName: 'perfumes.png', title: 'Perfumes'),
-    _Model(imageName: 'makeup.png', title: 'Makeup'),
-    _Model(imageName: 'skin_care.png', title: 'Skin Care'),
-    _Model(imageName: 'gifts.png', title: 'Gifts'),
-  ];
+  @override
+  void initState() {
+    super.initState();
+    getData();
+  }
+
+  late List<CategoryModel> list;
+
+  DataState? state;
+  Future<void> getData() async {
+    state = DataState.loading;
+    setState(() {});
+    final response = await DioHelper.getData('api/Categories');
+    if (response.isSuccess) {
+      list = (response.data as List<dynamic>)
+          .map((e) => CategoryModel.fromJson(e))
+          .toList();
+
+      print(list.first.title);
+      state = DataState.success;
+    } else {
+      state = DataState.failure;
+    }
+
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,68 +48,86 @@ class _CategoriesPageState extends State<CategoriesPage> {
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 13.r),
-          child: Column(
-            children: [
-              Padding(
-                padding: EdgeInsets.symmetric(vertical: 24.r),
-                child: Text(
-                  'Categories',
-                  style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                    color: Color(0xff434C6D),
-                    fontVariations: [FontVariation('wght', 700)],
-                  ),
-                ),
-              ),
-              Search(),
-              SizedBox(height: 10.h),
-              Expanded(
-                child: ListView.builder(
-                  itemCount: _list.length,
-                  itemBuilder: (BuildContext context, int index) => Column(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.symmetric(vertical: 10.r),
-                        child: Row(
-                          children: [
-                            AppImage(
-                              image: _list[index].imageName,
-                              height: 64.h,
-                              width: 64.w,
+          child: state == DataState.failure
+              ? IconButton(
+                  onPressed: () {
+                    getData();
+                  },
+                  icon: Icon(Icons.replay),
+                )
+              : state == DataState.loading
+              ? CupertinoActivityIndicator()
+              : Column(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.symmetric(vertical: 24.r),
+                      child: Text(
+                        'Categories',
+                        style: Theme.of(context).textTheme.headlineSmall!
+                            .copyWith(
+                              color: Color(0xff434C6D),
+                              fontVariations: [FontVariation('wght', 700)],
                             ),
-                            SizedBox(width: 25.w),
-                            Text(
-                              _list[index].title,
-                              style: Theme.of(context).textTheme.labelSmall!
-                                  .copyWith(
-                                    color: Color(0xff434C6D),
-                                    fontVariations: [
-                                      FontVariation('wght', 600),
+                      ),
+                    ),
+                    Search(),
+                    SizedBox(height: 10.h),
+                    Expanded(
+                      child: ListView.builder(
+                        itemCount: list.length,
+                        itemBuilder: (BuildContext context, int index) =>
+                            Column(
+                              children: [
+                                Padding(
+                                  padding: EdgeInsets.symmetric(vertical: 10.r),
+                                  child: Row(
+                                    children: [
+                                      AppImage(
+                                        image: list[index].imageUrl,
+                                        height: 64.h,
+                                        width: 64.w,
+                                      ),
+                                      SizedBox(width: 25.w),
+                                      Text(
+                                        list[index].title,
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .labelSmall!
+                                            .copyWith(
+                                              color: Color(0xff434C6D),
+                                              fontVariations: [
+                                                FontVariation('wght', 600),
+                                              ],
+                                            ),
+                                      ),
+
+                                      const Spacer(),
+                                      AppImage(image: 'arrow_right.svg'),
                                     ],
                                   ),
+                                ),
+
+                                if (index < list.length - 1) Divider(),
+                              ],
                             ),
-
-                            const Spacer(),
-                            AppImage(image: 'arrow_right.svg'),
-                          ],
-                        ),
                       ),
-
-                      if (index < _list.length - 1) Divider(),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-              ),
-            ],
-          ),
         ),
       ),
     );
   }
 }
 
-class _Model {
-  final String imageName;
-  final String title;
+class CategoryModel {
+  late final int id;
+  late final String title;
+  late final String imageUrl;
 
-  _Model({required this.imageName, required this.title});
+  CategoryModel.fromJson(Map<String, dynamic> json) {
+    id = json["id"] ?? 0;
+    title = json["title"] ?? '';
+    imageUrl = json["imageUrl"] ?? '';
+  }
 }

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lottie/lottie.dart';
@@ -74,6 +76,13 @@ class _AppImageState extends State<AppImage>
               fit: myFit,
               width: widget.width,
               height: widget.height,
+              errorBuilder: (context, error, stackTrace) {
+                return Icon(
+                  Icons.broken_image,
+                  color: Colors.grey,
+                  size: widget.width ?? 24,
+                );
+              },
             );
           } else if (widget.image.endsWith("json")) {
             child = Lottie.asset(
@@ -96,6 +105,13 @@ class _AppImageState extends State<AppImage>
                 child: child,
               );
             }
+          } else if (widget.image.startsWith('/')) {
+            child = Image.file(
+              File(widget.image),
+              fit: myFit,
+              width: widget.width,
+              height: widget.height,
+            );
           } else {
             child = Image.asset(
               "assets/images/${widget.image}",

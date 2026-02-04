@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 
-String baseUrl = "http://www.cosmatics.growfet.com/";
+String baseUrl = "https://cosmatics.growfet.com/";
 Duration apiTimeOut = const Duration(seconds: 30);
 
 class DioHelper {
@@ -78,6 +78,6 @@ class CustomResponse {
   final dynamic data;
   late final String msg;
   CustomResponse({required this.isSuccess, required this.data}) {
-    msg = data is Map ? data['message'] : null;
+    msg = data is Map ? data['message'] : '';
   }
 }
