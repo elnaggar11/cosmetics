@@ -25,7 +25,7 @@ class _List extends StatelessWidget {
             crossAxisCount: 2,
             mainAxisSpacing: 12.w,
             crossAxisSpacing: 12.h,
-            childAspectRatio: 180.w / 240.h,
+            childAspectRatio: 176.w / 237.h,
           ),
           itemBuilder: (context, index) {
             return _Item();
@@ -45,7 +45,7 @@ class _Item extends StatelessWidget {
       color: Color(0xffD2D2D2),
       elevation: 6,
       child: Padding(
-        padding: EdgeInsets.all(8.h),
+        padding: EdgeInsets.all(7.h),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -72,7 +72,7 @@ class _Item extends StatelessWidget {
             SizedBox(height: 11.h),
             Text(
               'Face tint / lip tint',
-              style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+              style: Theme.of(context).textTheme.labelSmall!.copyWith(
                 color: Color(0xff434C6D),
                 fontVariations: [FontVariation('wght', 600)],
               ),
@@ -82,7 +82,7 @@ class _Item extends StatelessWidget {
 
             Text(
               '\$44.99',
-              style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+              style: Theme.of(context).textTheme.bodySmall!.copyWith(
                 color: Color(0xff70839C),
                 fontVariations: [FontVariation('wght', 700)],
               ),

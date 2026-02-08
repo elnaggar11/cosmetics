@@ -5,6 +5,7 @@ version: 1.0.0+1
 environment:
   sdk: ^3.9.2
 dependencies:
+  carousel_slider: ^5.1.1
   circular_countdown_timer: ^0.2.4
   cupertino_icons: ^1.0.8
   dio: ^5.9.1

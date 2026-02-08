@@ -1,5 +1,9 @@
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:cosmetics/core/logic/dio_helper.dart';
+import 'package:cosmetics/core/ui/app_country_code.dart';
 import 'package:cosmetics/core/ui/app_image.dart';
 import 'package:cosmetics/core/ui/search.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 part 'components/offers.dart';
